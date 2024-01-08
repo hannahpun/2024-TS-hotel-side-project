@@ -1,0 +1,70 @@
+
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-size: 16px;
+  --swiper-navigation-color: #B7B7B7;
+  --swiper-navigation-sides-offset: -1%;
+  background-color: #fff;
+  border: 1px solid $gray-400;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+
+  &::after{
+    content: ""; /* 清除預設箭頭內容 */
+  }
+}
+
+.swiper-pagination{
+  position: relative;
+  margin-top: 16px;
+}
+
+.swiper-pagination-bullet{
+  box-shadow: 0 1px 3px $gray-600;
+
+  &-active{
+    background-color: $primary;
+  }
+}
+
+
+.swiper-slide img {
+  display: block;
+  object-fit: cover;
+}
+
+//.swiper-slide {
+//   text-align: center;
+//   font-size: 18px;
+//   background: transparent;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//}
+
+// .swiper-button-prev-swOne{
+//   display: block;
+//   width: 50px;
+//   height: 50px;
+//   background: #000;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: 100;
+// }
+
+// .swiper-button-next-swTwo{
+//   display: block;
+//   width: 50px;
+//   height: 50px;
+//   background: #000;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   z-index: 100;
+// }

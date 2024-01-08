@@ -1,0 +1,45 @@
+.news-card {
+  background-color: $custom-primary-10;
+
+  img {
+    display: block;
+    max-width: 474px;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+ .about{
+//  background: url('../assets/images/pc/about.png') ;
+ background:url('../assets/images/pc/about.png') cover red 100% 100%;
+ //background: url('../assets/images/pc/about.png') cover no-repeat 100% 100%;
+}
+
+.room {
+  background:url('../assets/images/pc/bg.png') ;
+}
+
+.food {
+  background-color: $custom-primary-10;
+}
+
+.foodSwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  /* display: block;
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover; */
+
+  display: block;
+  max-width: 481px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.transportation-card {
+
+}

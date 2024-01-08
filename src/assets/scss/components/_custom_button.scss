@@ -1,0 +1,8 @@
+.btn-custom-hex {
+    @include button-variant(#69f0ae, #69f0ae);
+}
+
+.btn-custom-outline-hex {
+    @include button-outline-variant(#69f0ae);
+    @include gradient-bg(#dc3545e6);
+}

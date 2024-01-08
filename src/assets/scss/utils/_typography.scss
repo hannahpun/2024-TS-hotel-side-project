@@ -1,0 +1,39 @@
+// 字體
+.font-lemon{
+  font-family: Lemon;
+}
+
+.font-jost{
+  font-family: 'Jost', sans-serif;
+}
+
+
+.font-noto-tc-serif {
+  font-family: 'Noto Serif TC' !important;
+}
+
+.font-noto-tc-sans {
+  font-family: 'Noto Sans TC' !important;
+}
+
+
+// logo 標題替代
+.text-replace {
+  width: 0px;
+  height: 0px;
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+// 字數限制
+@for $i from 1 through 3 {
+  .ellipsis-#{$i} {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $i;
+    line-height: 1.5;
+    overflow: hidden;
+  }
+}
