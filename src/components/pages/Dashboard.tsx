@@ -1,3 +1,6 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 import news1 from "@assets/images/pc/news1.png";
 import news2 from "@assets/images/pc/news2.png";
 import news3 from "@assets/images/pc/news3.png";
@@ -9,6 +12,7 @@ import food4 from "@assets/images/pc/food4.png";
 import map from "@assets/images/pc/map.png";
 
 function Dashboard() {
+  const foods = [food1, food2, food3, food4];
   return (
     <>
       {/* Start of Banner*/}
@@ -116,46 +120,29 @@ function Dashboard() {
 
               {/* Slider main container */}
               <div className="foodSwiper">
-                {/* Additional required wrapper */}
-                <div className="swiper-wrapper">
-                  {/* Slides */}
-                  <div className="swiper-slide">
-                    {/* 這邊是放要輪播的內容 */}
-                    <div className="card">
-                      <img src={food1} alt="圖片1" className="img-fluid" />
-                    </div>
-                  </div>
-
-                  <div className="swiper-slide">
-                    {/* 這邊是放要輪播的內容 */}
-                    <div className="card">
-                      <img src={food2} alt="圖片1" className="img-fluid" />
-                    </div>
-                  </div>
-
-                  <div className="swiper-slide">
-                    {/* 這邊是放要輪播的內容 */}
-                    <div className="card">
-                      <img src={food3} alt="圖片1" className="img-fluid" />
-                    </div>
-                  </div>
-
-                  <div className="swiper-slide">
-                    {/* 這邊是放要輪播的內容 */}
-                    <div className="card">
-                      <img src={food4} alt="圖片1" className="img-fluid" />
-                    </div>
-                  </div>
-                  {/* If we need pagination */}
-                  {/* <div className="swiper-pagination"></div> */}
-
-                  {/* If we need navigation buttons */}
-                  {/* <div className="swiper-button-prev"></div> */}
-                  {/* <div className="swiper-button-next"></div> */}
-
-                  {/* If we need scrollbar */}
-                  {/* <div className="swiper-scrollbar"></div> */}
-                </div>
+                {/* Slides */}
+                <Swiper
+                  spaceBetween={50}
+                  slidesPerView={3}
+                  onSlideChange={() => console.log("slide change")}
+                  onSwiper={(swiper) => console.log(swiper)}
+                >
+                  {foods.map((food, i) => (
+                    <SwiperSlide>
+                      <div className="swiper-slide">
+                        {/* 這邊是放要輪播的內容 */}
+                        <div className="card">
+                          <img
+                            src={food}
+                            alt={`pic${i}`}
+                            className="img-fluid"
+                          />
+                          {i}
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
           </div>

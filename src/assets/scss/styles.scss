@@ -1,13 +1,8 @@
 // Override Bootstrap's Sass default variables
 //
-// Nearly all variables in Bootstrap are written with the `!default` flag.
-// This allows you to override the default values of those variables before
-// you import Bootstrap's source Sass files.
-//
-// Overriding the default variable values is the best way to customize your
-// CSS without writing _new_ styles. For example, you can either change
-// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
-// `body { color: red; }`.
+/*
+    這個檔案是擴充 Bootstrap 或改他的變數，盡量直接改變數效能會比較好
+*/
 
 
 
@@ -45,12 +40,16 @@ $input-btn-padding-y: .7rem;
 
 // $form-text-color: $dart-bg;
 
+
 // Required
+
+@import "./utils/variables";  // custom
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/variables-dark";
 @import "bootstrap/scss/maps";
 @import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
+@import "./utils/utilities";   // custom
+// @import "bootstrap/scss/utilities";
 @import "bootstrap/scss/root";
 @import "bootstrap/scss/reboot";
 
@@ -79,7 +78,7 @@ $input-btn-padding-y: .7rem;
 @import "bootstrap/scss/modal"; // Requires transitions
 // @import "bootstrap/scss/tooltip";
 @import "bootstrap/scss/popover";
-// @import "bootstrap/scss/carousel";
+@import "bootstrap/scss/carousel";
 // @import "bootstrap/scss/spinners";
 @import "bootstrap/scss/offcanvas"; // Requires transitions
 // @import "bootstrap/scss/placeholders";

@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { LoginFormValues } from "@/types/FormValue";
 import Input from "@components/atoms/Input";
 import Button from "@components/atoms/Button";
 
 function Login() {
-  const [count, setCount] = useState(0);
   const {
     register,
     handleSubmit,

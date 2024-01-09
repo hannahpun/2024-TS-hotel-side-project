@@ -1,30 +1,58 @@
-# React + TypeScript + Vite
+# 網頁切版直播班 Vite 範例 - Bootstrap 版本
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Node.js 版本
 
-Currently, two official plugins are available:
+- 專案的 Node.js 版本需為 v16 以上
+- 查看自己版本指令：`node -v`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 指令列表
 
-## Expanding the ESLint configuration
+- `npm install` - 初次下載該範例專案後，需要使用 npm install 來安裝套件
+- `npm run dev` - 執行開發模式
+  - 若沒有自動開啟瀏覽器，可嘗試手動在瀏覽器上輸入
+    `http://localhost:5173/<專案名稱>/pages/index.html`
+- `npm run build` - 執行編譯模式（不會開啟瀏覽器）
+- `npm ru deploy` - 自動化部署
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 資料夾結構
 
-- Configure the top-level `parserOptions` property like this:
+- assets # 靜態資源放置處
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+  - images # 圖片放置處
+  - scss
+    - styles.scss: 擴充 Bootstrap 或改 BS 變數(建議直接改變數效能較好)
+    - all.scss: 各頁克制樣式用
+
+- layout # 模板放置處
+- pages # 頁面放置處
+- React components 採用 Atomic design 法
+
+- JavaScript 程式碼可寫在 main.js 檔案
+
+### 注意事項
+
+- Form 使用 React Hook Form
+
+## 開發模式的監聽
+
+vite 專案執行開發模式 `npm run dev` 後即會自動監聽，不需要使用 `Live Sass Compiler` 的 `Watch SCSS` 功能
+
+## 部署 gh-pages 流程說明
+
+### Windows 版本
+
+1. 在 GitHub 建立一個新的 Repository
+
+2. 部署前請務必先將原始碼上傳到 GitHub Repository 也就是初始化 GitHub，因此通常第一步驟會在專案終端機輸入以下指令
+
+```cmd
+git init # 若已經初始化過就可以不用輸入
+git add .
+git commit -m 'first commit'
+git branch -M main
+git remote add origin [GitHub Repositories Url]
+git push -u origin main // 僅限第一次輸入，往後只需要輸入 git push
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. 初始化完畢後，執行 `npm run deploy` 指令進行自動化部署
+   "# training_2024_work_hotel"
