@@ -1,0 +1,12 @@
+.step-button{
+    @extend .h3;
+    @extend .btn;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    line-height: 0;
+    margin-bottom: 10px;
+}
+.step-item{
+    text-align: center;
+}

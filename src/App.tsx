@@ -1,15 +1,18 @@
 import Login from "@components/pages/Login";
+import Signup from "@/components/pages/Signup/Signup";
 import Dashboard from "@components/pages/Dashboard";
 import LayoutDefault from "@components/layout/LayoutDefault";
+import NotFound from "@components/pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <LayoutDefault>
       <Routes>
+        <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Dashboard />} />
-        {/* <Route path="*" element={<Navigate to="/" />} /> */}
+        <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </LayoutDefault>
   );

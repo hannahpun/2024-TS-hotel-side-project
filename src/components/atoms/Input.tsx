@@ -1,34 +1,37 @@
-import { UseFormRegister, FieldErrors } from "react-hook-form";
-import { LoginFormValues } from "@/types/FormValue";
+import { UseFormSignup, Path, FieldValues, FieldErrors } from "react-hook-form";
 
-interface IInput {
-  name: keyof LoginFormValues;
-  displayName: string;
-  errors: FieldErrors<LoginFormValues>;
-  register: UseFormRegister<LoginFormValues>;
+interface IInput<T extends FieldValues> {
+  name: Path<T>;
+  placeholder: string;
+  displayName?: string;
+  errors: FieldErrors<T>;
+  register: UseFormSignup<T>;
   rules: object;
-  type: string;
+  type?: string;
 }
-
-const Input = ({
+const Input = <T extends FieldValues>({
   name,
+  placeholder,
   displayName,
   errors,
   register,
   rules,
-  type,
-}: IInput) => (
-  <div className="mb-3">
-    <label htmlFor={name} className="form-label">
-      {displayName}
-    </label>
+  type = "text",
+}: IInput<T>) => (
+  <div>
+    {displayName && (
+      <label htmlFor={name} className="form-label">
+        {displayName}
+      </label>
+    )}
     <input
       type={type}
-      {...register(`${name}`, rules)}
+      placeholder={placeholder}
+      {...register(name, rules)}
       className={`form-control ${errors[name] && "is-invalid"}`}
       id={name}
     />
-    <div className="invalid-feedback">{errors[name]?.message}</div>
+    <div className="invalid-feedback">{errors[name]?.message as string}</div>
   </div>
 );
 

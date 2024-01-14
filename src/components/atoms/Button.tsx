@@ -3,7 +3,7 @@ interface IButton extends React.ComponentProps<"button"> {
 }
 
 const Button = ({ displayName, ...restProps }: IButton) => (
-  <div className="d-grid mt-4 mb-4">
+  <div className="d-grid mt-10 mb-4">
     <button {...restProps} className="btn btn-primary">
       {displayName}
     </button>

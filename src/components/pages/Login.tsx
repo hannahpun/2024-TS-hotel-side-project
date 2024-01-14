@@ -1,10 +1,15 @@
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { Maybe } from "@/types/helpers";
-import { LoginFormValues } from "@/types/FormValue";
 import Input from "@components/atoms/Input";
 import Button from "@components/atoms/Button";
 import pic from "@assets/images/pc/register.png";
 import { useState } from "react";
+
+type LoginFormValues = {
+  email: string;
+  password: string;
+};
 
 function Login() {
   const {
@@ -43,7 +48,7 @@ function Login() {
             <h1>立即開始旅程</h1>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} className="row g-3">
             <Input
               name="email"
               displayName="電子信箱"
@@ -83,7 +88,10 @@ function Login() {
           </form>
           <div className="col">
             <p>
-              沒有會員嗎？ <a className="text-primary">前往註冊</a>
+              沒有會員嗎？{" "}
+              <Link className="nav-link text-primary d-inline" to="/signup">
+                前往註冊
+              </Link>
             </p>
           </div>
         </div>
