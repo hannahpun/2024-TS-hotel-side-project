@@ -1,10 +1,61 @@
 import hero from "@assets/images/pc/hero.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+type UserProfile = {
+  email: string;
+  name: string;
+  phone: string;
+  birthday: string;
+  address: {
+    zipcode: number;
+    city: string;
+    county: string;
+    detail: string;
+  };
+};
 
 function User() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
   const [isEditingAccount, setIsEditingAccount] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
+
+  const [userProfile, setUserProfile] = useState<UserProfile>();
+  const [oldPassword, setOldPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+
+  useEffect(() => {
+    const getUserProfile = async () => {
+      const response = await fetch("/api/v1/user/profile");
+      const jsonData = await response.json();
+      setUserProfile(jsonData.result);
+    };
+    getUserProfile();
+  }, []);
+
+  const submitPasswordForm = async () => {
+    await fetch("/api/v1/user/profile", {
+      method: "PUT",
+      body: JSON.stringify({
+        oldPassword,
+        newPassword,
+      }),
+    });
+  };
+  const submitProfileForm = async () => {
+    await fetch("/api/v1/user/profile", {
+      method: "PUT",
+      body: JSON.stringify({
+        name: userProfile?.name,
+        phone: userProfile?.phone,
+        birthday: userProfile?.birthday,
+        address: {
+          zipcode: userProfile?.address.zipcode,
+          detail: userProfile?.address.detail,
+        },
+      }),
+    });
+  };
 
   const renderPasswordForm = () => {
     if (isEditingAccount) {
@@ -14,20 +65,29 @@ function User() {
           <input
             className="p-4 border border-light-subtle rounded-2 mt-2"
             placeholder="請輸入舊密碼"
+            value={oldPassword}
+            onChange={(e) => setOldPassword(e.target.value)}
           />
           <p className="mt-6 text-black">新密碼</p>
           <input
             className="p-4 border border-light-subtle rounded-2 mt-2"
             placeholder="請輸入新密碼"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
           />
           <p className="mt-6 text-black">確認新密碼</p>
           <input
             className="p-4 border border-light-subtle rounded-2 mt-2"
             placeholder="請再輸入一次新密碼"
+            value={confirmNewPassword}
+            onChange={(e) => setConfirmNewPassword(e.target.value)}
           />
           <button
             className="px-8 py-4 text-black-50 border-0 mt-10 rounded-2 align-self-md-start"
-            onClick={() => setIsEditingAccount(false)}
+            onClick={async () => {
+              await submitPasswordForm();
+              setIsEditingAccount(false);
+            }}
           >
             儲存設定
           </button>
@@ -89,7 +149,10 @@ function User() {
           />
           <button
             className="px-8 py-4 text-black-50 border-0 mt-10 rounded-2 align-self-md-start"
-            onClick={() => setIsEditingProfile(false)}
+            onClick={async () => {
+              await submitProfileForm();
+              setIsEditingProfile(false);
+            }}
           >
             儲存設定
           </button>
@@ -99,13 +162,17 @@ function User() {
     return (
       <>
         <p className="text-black">姓名</p>
-        <div className="text-black mt-2 fw-bold">Jessica Ｗang</div>
+        <div className="text-black mt-2 fw-bold">{userProfile?.name}</div>
         <p className="mt-6 text-black">手機號碼</p>
-        <div className="text-black mt-2 fw-bold">+886 912 345 678</div>
+        <div className="text-black mt-2 fw-bold">{userProfile?.phone}</div>
         <p className="mt-6 text-black">生日</p>
-        <div className="text-black mt-2 fw-bold">1990 年 8 月 15 日</div>
+        <div className="text-black mt-2 fw-bold">{userProfile?.birthday}</div>
         <p className="mt-6 text-black">地址</p>
-        <div className="text-black mt-2 fw-bold">高雄市新興區六角路 123 號</div>
+        <div className="text-black mt-2 fw-bold">
+          {userProfile?.address.city}
+          {userProfile?.address.county}
+          {userProfile?.address.detail}
+        </div>
         <button
           className="w-auto px-8 py-4 text-primary border border-primary bg-transparent mt-10 rounded-2 align-self-start"
           onClick={() => setIsEditingProfile(true)}
@@ -126,7 +193,7 @@ function User() {
       <div className="container">
         <div className="d-flex align-items-center gap-6 py-30">
           <img src="" width="144" height="144" className="rounded-circle" />
-          <div className="h1">Hello，Jessica</div>
+          <div className="h1">Hello，{userProfile?.name}</div>
         </div>
         <div className="d-flex mt-10 position-relative">
           {["個人資料", "我的訂單"].map((tab, index) => (
@@ -156,7 +223,7 @@ function User() {
               <h1 className="h5 text-black">修改帳號資料</h1>
               <form className="d-flex flex-column mt-10 position-relative">
                 <p className="text-black">電子信箱</p>
-                <div className="mt-2 text-black">Jessica@exsample.com</div>
+                <div className="mt-2 text-black">{userProfile?.email}</div>
                 {renderPasswordForm()}
               </form>
             </div>
