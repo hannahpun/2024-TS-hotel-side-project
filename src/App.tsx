@@ -1,10 +1,11 @@
-import Login from "@components/pages/Login";
 import Signup from "@/components/pages/Signup/Signup";
-import Dashboard from "@components/pages/Dashboard";
 import LayoutDefault from "@components/layout/LayoutDefault";
+import Dashboard from "@components/pages/Dashboard";
+import Login from "@components/pages/Login";
 import NotFound from "@components/pages/NotFound";
-import { Routes, Route } from "react-router-dom";
-import Room from "./components/pages/Room";
+import Room from "@components/pages/Room";
+import User from "@components/pages/User/User";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/room" element={<Room />} />
+        <Route path="/user" element={<User />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </LayoutDefault>
