@@ -21,6 +21,7 @@ function UserProfile({
       method: "PUT",
       headers: new Headers({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
       }),
       body: JSON.stringify({
         userId: user.userId,
@@ -32,6 +33,10 @@ function UserProfile({
   const submitProfileForm = async () => {
     await fetch("/api/v1/user", {
       method: "PUT",
+      headers: new Headers({
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+        "Content-Type": "application/json",
+      }),
       body: JSON.stringify({
         userId: user.userId,
         name: user.name,
@@ -46,9 +51,6 @@ function UserProfile({
           ),
           detail: user.address.detail,
         },
-      }),
-      headers: new Headers({
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
       }),
     });
   };
@@ -296,7 +298,7 @@ function UserProfile({
     <div className="row gx-10 gy-6 mt-10">
       <div className="col-12 col-md-5">
         <div className="bg-white flex-fill p-10 rounded-4">
-          <h1 className="h5 text-black">修改帳號資料</h1>
+          <h2 className="h5 text-black">修改帳號資料</h2>
           <form
             className="d-flex flex-column mt-10 position-relative"
             onSubmit={async (e) => {
@@ -313,7 +315,7 @@ function UserProfile({
       </div>
       <div className="col-12 col-md-7">
         <div className="bg-white flex-fill p-10 rounded-4">
-          <h1 className="h5 text-black">基本資料</h1>
+          <h2 className="h5 text-black">基本資料</h2>
           <form
             className="d-flex flex-column mt-10"
             onSubmit={async (e) => {
