@@ -3,7 +3,7 @@ import LayoutDefault from "@components/layout/LayoutDefault";
 import Dashboard from "@components/pages/Dashboard";
 import Login from "@components/pages/Login";
 import NotFound from "@components/pages/NotFound";
-import Room from "@components/pages/Room";
+import Room from "@/components/pages/Room/Room";
 import User from "@components/pages/User/User";
 import { Route, Routes } from "react-router-dom";
 
