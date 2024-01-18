@@ -49,11 +49,14 @@ function PersonalDetail({ formData }: PersonalDetail) {
   }, [watchCity]);
 
   const onSubmit = async (data: PersonalDetailFormValues) => {
-    console.log("onSubmit: ", data);
     const response = await fetch("/api/v1/user/signup", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         ...formData,
+        name: data.name,
         phone: data.phone,
         birthday: `${data.birthdayY}/${data.birthdayM}/${data.birthdayD}`,
         address: {

@@ -9,6 +9,7 @@
 // Toggle global options
 $enable-gradients: false;
 $enable-shadows: false;
+$enable-rounded: true;
 
 $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
 
@@ -37,8 +38,11 @@ $custom-primary-10: #F7F2EE !default;
 $input-bg: $body-color;
 $input-color: $dart-bg;
 $input-btn-padding-y: .7rem;
+$input-border-radius: 8px;
 
-// $form-text-color: $dart-bg;
+// button
+$btn-border-radius: 8px;
+$border-radius: 8px;
 
 
 // Required

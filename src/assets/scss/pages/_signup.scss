@@ -10,3 +10,13 @@
 .step-item{
     text-align: center;
 }
+
+.login-bg{
+    @media screen and (min-width: 768px) {
+        background-image: url('/src/assets/images/pc/register.png');
+        background-size: 43%;
+        background-position: left top;
+        background-repeat: no-repeat;
+        padding: 80px 0;
+    }
+}

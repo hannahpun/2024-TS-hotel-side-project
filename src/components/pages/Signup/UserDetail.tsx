@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import Input from "@components/atoms/Input";
 import Button from "@components/atoms/Button";
 import { SignupFromData } from "@/types/form";
+import { Maybe } from "@/types/helpers";
 
 type UserDetailFormValues = {
   email: string;
@@ -23,9 +24,31 @@ function UserDetail({ setStep, formData, setFormData }: UserDetail) {
     formState: { errors },
   } = useForm<UserDetailFormValues>();
 
-  const onSubmit = async (data: UserDetailFormValues) => {
+  // invalid email 錯誤訊息
+  const [inValidEmailMsg, setInValidEmailMsg] = useState<Maybe<string>>(null);
+
+  const onSubmit = (data: UserDetailFormValues) => {
     setStep(2);
     setFormData({ ...formData, email: data.email, password: data.password });
+  };
+
+  const validateEmail = async () => {
+    const response = await fetch("/api/v1/verify/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: watch("email"),
+      }),
+    });
+    const jsonData = await response.json();
+    if (!jsonData.status) {
+      setInValidEmailMsg(jsonData.message);
+    }
+    if (jsonData.status && jsonData.result?.isEmailExists) {
+      setInValidEmailMsg("此 Email 已存在");
+    }
   };
 
   return (
@@ -38,9 +61,10 @@ function UserDetail({ setStep, formData, setFormData }: UserDetail) {
         register={register}
         rules={{
           required: "必填欄位",
-          pattern: { value: /^\S+@\S+$/i, message: "格式不對" },
+          onBlur: validateEmail,
         }}
       />
+      {inValidEmailMsg && <p className="text-danger">{inValidEmailMsg}</p>}
       <Input
         name="password"
         placeholder="請輸入密碼"

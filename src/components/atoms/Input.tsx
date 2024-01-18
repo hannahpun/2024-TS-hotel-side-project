@@ -1,11 +1,16 @@
-import { UseFormSignup, Path, FieldValues, FieldErrors } from "react-hook-form";
+import {
+  UseFormRegister,
+  Path,
+  FieldValues,
+  FieldErrors,
+} from "react-hook-form";
 
 interface IInput<T extends FieldValues> {
   name: Path<T>;
   placeholder: string;
   displayName?: string;
   errors: FieldErrors<T>;
-  register: UseFormSignup<T>;
+  register: UseFormRegister<T>;
   rules: object;
   type?: string;
 }
