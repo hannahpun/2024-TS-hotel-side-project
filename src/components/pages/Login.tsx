@@ -24,8 +24,10 @@ function Login() {
 
   const navigate = useNavigate();
   const [resErrorMsg, setResErrorMsg] = useState<Maybe<string>>(null);
+  const [hasSubmit, setHasSubmit] = useState(false);
 
   const onSubmit = async (data: LoginFormValues) => {
+    setHasSubmit(true);
     const response = await fetch("/api/v1/user/login", {
       method: "POST",
       headers: {
@@ -37,6 +39,7 @@ function Login() {
     // if error happen
     if (!jsonData.status) {
       setResErrorMsg(jsonData.message);
+      setHasSubmit(false);
     }
     // success
     localStorage.setItem("token", jsonData.token);
@@ -91,7 +94,13 @@ function Login() {
                 <p className="text-primary  text-end">忘記密碼</p>
               </div>
               {resErrorMsg && <p className="text-danger">{resErrorMsg}</p>}
-              <Button displayName="會員登入" type="submit" />
+              <Button type="submit">
+                {!hasSubmit ? (
+                  `會員登入`
+                ) : (
+                  <div className="spinner-border" role="status"></div>
+                )}
+              </Button>
             </form>
             <div className="col">
               <p>

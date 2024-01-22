@@ -90,7 +90,7 @@ function UserDetail({ setStep, formData, setFormData }: UserDetail) {
           },
         }}
       />
-      <Button displayName="下一步" type="submit" />
+      <Button type="submit">下一步</Button>
     </form>
   );
 }

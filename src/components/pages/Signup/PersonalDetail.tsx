@@ -182,7 +182,7 @@ function PersonalDetail({ formData }: PersonalDetail) {
         </div>
       </div>
       {resErrorMsg && <p className="text-danger">{resErrorMsg}</p>}
-      <Button displayName="完成註冊" type="submit" />
+      <Button type="submit">完成註冊</Button>
     </form>
   );
 }
