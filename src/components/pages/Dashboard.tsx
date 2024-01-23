@@ -10,20 +10,58 @@ import food2 from "@assets/images/pc/food2.png";
 import food3 from "@assets/images/pc/food3.png";
 import food4 from "@assets/images/pc/food4.png";
 import map from "@assets/images/pc/map.png";
-
+import banner from "@assets/images/pc/banner.png";
 function Dashboard() {
   const foods = [food1, food2, food3, food4];
   return (
     <>
       {/* Start of Banner*/}
-      <div className=""></div>
+      <div className="banner-card ">
+        <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+          <div className="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <div className="position-absolute w-100 mt-29 ms-20 mb-41 me-20">
+                <div className="d-flex align-items-center">
+                  <div className="">
+                    <p className="fs-2 fw-bold font-noto-tc-serif text-custom-primary-100 mb-1">享樂酒店</p>
+                    <p className="fs-5 fw-bold font-noto-tc-serif text-custom-primary-100 mb-10" style={{ marginRight:"311px"}}>Enjoyment Luxury Hotel</p>
+                    <hr style={{width:"100%", height:"2px", background: "linear-gradient(90deg, #BE9C7C 0%, #FFF 100%"}} />
+                  </div>
+                  <div className="ms-38">
+                    <h2 className="fw-bold font-noto-tc-serif" style={{ fontSize:"100px"}}>高雄<br/>豪華住宿之選</h2>
+                    <p className="fs-3 fw-bold font-noto-tc-serif mb-15">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
+                    <a href="#" className="w-100 fw-bold font-noto-tc-serif text-end btn btn-lg btn-custom-neutral-0 px-10 py-10">立即訂房</a>
+                  </div>
+                </div>
+              </div>
+              <img src={banner} width="100%" height="100%" alt="banner" />
+
+        </div>
+      </div>
+          {/* <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button> */}
+        </div>
+
+
+      </div>
       {/* End of Banner*/}
 
       {/* Start of 最新消息 */}
       <div className="news-card">
         <div className="container pt-30 pb-30 d-lg-flex flex-sm-row">
           <div>
-            <h2 className="fs-1 text-primary wc-35">
+            <h2 className="fs-1 font-noto-tc-serif text-primary wc-35">
               最新
               <br />
               消息
@@ -37,10 +75,10 @@ function Dashboard() {
                 alt="秋季旅遊，豪華享受方案"
               />
               <div className="mt-4 ms-lg-6 d-flex flex-column align-self-center">
-                <h3 className="fs-lg-3 fwv-700 text-dark mb-2 mb-lg-6">
+                <h3 className="fs-lg-3 fwv-700 font-noto-tc-serif text-dark mb-2 mb-lg-6">
                   秋季旅遊，豪華享受方案
                 </h3>
-                <p className="fs-lg-7 fwv-500 lh-base text-dark">
+                <p className="fs-lg-7 fwv-500 font-noto-tc-serif lh-base text-dark">
                   秋天就是要來場豪華的旅遊！我們為您準備了一系列的秋季特別方案，包括舒適的住宿、美食饗宴，以及精彩的活動。不論您是想來一趟浪漫之旅，還是想和家人共度美好時光，都能在這裡找到最適合的方案。
                 </p>
               </div>
@@ -48,10 +86,10 @@ function Dashboard() {
             <li className="d-lg-flex flex-row mb-10">
               <img src={news2} className="rounded" alt="輕鬆住房專案" />
               <div className="mt-4 ms-lg-6 d-flex flex-column align-self-center">
-                <h3 className="fs-lg-3 fwv-700 text-dark mb-2 mb-lg-6">
+                <h3 className="fs-lg-3 fwv-700 font-noto-tc-serif text-dark mb-2 mb-lg-6">
                   輕鬆住房專案
                 </h3>
-                <p className="fs-lg-7 fwv-500 lh-base text-dark">
+                <p className="fs-lg-7 fwv-500 font-noto-tc-serif lh-base text-dark">
                   我們知道，有時候您只是需要一個舒適的地方放鬆心情。因此，我們推出了「輕鬆住房專案」，讓您無壓力地享受住宿。不管是短期的休息，還是長期的住宿，我們都會以最貼心的服務，讓您感到賓至如歸。
                 </p>
               </div>
@@ -59,10 +97,10 @@ function Dashboard() {
             <li className="d-lg-flex flex-row mb-10">
               <img src={news3} className="rounded" alt="耶誕快樂，住房送禮" />
               <div className="mt-4 ms-lg-6 d-flex flex-column align-self-center">
-                <h3 className="fs-lg-3 fwv-700 text-dark mb-2 mb-lg-6">
+                <h3 className="fs-lg-3 fwv-700 font-noto-tc-serif text-dark mb-2 mb-lg-6">
                   耶誕快樂，住房送禮
                 </h3>
-                <p className="fs-lg-7 fwv-500 lh-base text-dark">
+                <p className="fs-lg-7 fwv-500 font-noto-tc-serif lh-base text-dark">
                   聖誕節來臨，我們為您準備了特別的禮物！在聖誕期間訂房，不僅有特別優惠，還會送上我們精心準備的聖誕禮物。讓我們一起慶祝這個溫馨的節日吧！
                 </p>
               </div>
@@ -76,7 +114,7 @@ function Dashboard() {
       <div className="about-card">
         <div className="container pt-lg-30 pb-lg-30">
           <div className="">
-            <h2 className="fs-1 text-primary">
+            <h2 className="fs-1 font-noto-tc-serif text-primary">
               關於
               <br />
               我們
@@ -91,12 +129,12 @@ function Dashboard() {
         <div className="pt-lg-40 pb-lg-40 d-lg-flex flex-row">
           <img src={room1} style={{ width: "900px" }} />
           <div className="pt-150 ms-20">
-            <h3 className="fs-1 mb-4">尊爵雙人房</h3>
-            <p className="mb-10">
+            <h3 className="fs-1 mb-4 font-noto-tc-serif">尊爵雙人房</h3>
+            <p className="mb-10 font-noto-tc-serif">
               享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
             </p>
-            <p className="fs-3">NT$ 10,000</p>
-            <a href="#" className="btn btn-lg btn-light">
+            <p className="fs-3 font-noto-tc-serif">NT$ 10,000</p>
+            <a href="#" className="w-100 btn btn-lg btn-light">
               查看更多
             </a>
           </div>
@@ -112,7 +150,7 @@ function Dashboard() {
 
             {/* 圖片輪播*/}
             <div className="">
-              <h2 className="fs-1 text-primary">
+              <h2 className="fs-1 font-noto-tc-serif text-primary">
                 佳餚
                 <br />
                 美饌
@@ -154,12 +192,12 @@ function Dashboard() {
       <div className="transportation-card">
         <div className="container pt-lg-30 pb-lg-30">
           <div className="">
-            <h2 className="fs-1 text-primary">
+            <h2 className="fs-1 font-noto-tc-serif text-primary">
               交通
               <br />
               方式
             </h2>
-            <p className="fs-7 fwv-700 mt-40 mb-4">
+            <p className="fs-7 fwv-700 font-noto-tc-serif mt-40 mb-4">
               台灣高雄市新興區六角路123號
             </p>
             <img src={map} style={{ width: "100%" }} alt="圖片1" className="" />
@@ -184,8 +222,8 @@ function Dashboard() {
                     </clipPath>
                   </defs>
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 mt-4 mb-2">自行開車</h3>
-                <p className="fs-8 fs-lg-7 fwv-500 lh-base">
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif mt-4 mb-2">自行開車</h3>
+                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif lh-base">
                   如果您選擇自行開車，可以透過國道一號下高雄交流道，往市區方向行駛，並依路標指示即可抵達「享樂酒店」。飯店內設有停車場，讓您停車方便。
                 </p>
               </div>
@@ -209,8 +247,8 @@ function Dashboard() {
                     </clipPath>
                   </defs>
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 mt-4 mb-2">高鐵/火車</h3>
-                <p className="fs-8 fs-lg-7 fwv-500 lh-base">
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif mt-4 mb-2">高鐵/火車</h3>
+                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif lh-base">
                   如果您是搭乘高鐵或火車，可於左營站下車，外頭有計程車站，搭乘計程車約20分鐘即可抵達。或者您也可以轉乘捷運紅線至中央公園站下車，步行約10分鐘便可抵達。
                 </p>
               </div>
@@ -227,8 +265,8 @@ function Dashboard() {
                     fill="#BF9D7D"
                   />
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 mt-4 mb-2">禮賓車服務</h3>
-                <p className="fs-8 fs-lg-7 fwv-500 lh-base">
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif mt-4 mb-2">禮賓車服務</h3>
+                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif lh-base">
                   承億酒店提供禮賓專車接送服務，但因目的地遠近會有不同的收費，請撥打電話將由專人為您服務洽詢專線：(07)123-4567
                 </p>
               </div>
