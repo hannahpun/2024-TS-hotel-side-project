@@ -347,10 +347,10 @@ $custom-info: (
 ) !default;
 
 // Alert
-$custom-alert-120:#C22538 !default;
-$custom-alert-100:#DA3E51 !default;
-$custom-alert-20:#F5CCD1 !default;
-$custom-alert-10:#FDECEF !default;
+$custom-alert-120: #C22538 !default;
+$custom-alert-100: #DA3E51 !default;
+$custom-alert-20: #F5CCD1 !default;
+$custom-alert-10: #FDECEF !default;
 
 $custom-alert: (
   "custom-alert-120" : $custom-alert-120,
@@ -359,12 +359,11 @@ $custom-alert: (
   "custom-alert-10"  : $custom-alert-10,
 ) !default;
 
-
 // Error
-$custom-error-120:#C22538 !default;
-$custom-error-100:#DA3E51 !default;
-$custom-error-20:#F5CCD1 !default;
-$custom-error-10:#FDECEF !default;
+$custom-error-120: #C22538 !default;
+$custom-error-100: #DA3E51 !default;
+$custom-error-20: #F5CCD1 !default;
+$custom-error-10: #FDECEF !default;
 
 $custom-error: (
   "custom-error-120" : $custom-error-120,
@@ -416,6 +415,52 @@ $theme-colors: (
   "danger":     $custom-error-100,   // $danger,
   "light":      $light,
   "dark":       $custom-neutral-100, // $dark
+
+  // scss docs start 自定義色彩 
+  // 主要色 Primary (品牌色，最主要使用
+  "custom-primary-120": $custom-primary-120,
+  "custom-primary-100": $custom-primary-100,
+  "custom-primary-80": $custom-primary-80,
+  "custom-primary-60": $custom-primary-60,
+  "custom-primary-40": $custom-primary-40,
+  "custom-primary-10": $custom-primary-10,
+  "custom-primary-tint": $custom-primary-tint,
+
+  // 語意輔助色 Semantic 
+  // Success
+  "custom-success-120": $custom-success-120, 
+  "custom-success-100": $custom-success-100,
+  "custom-success-20": $custom-success-20,
+  "custom-success-10": $custom-success-10,
+
+  // Info
+  "custom-info-120": $custom-info-120,
+  "custom-info-100": $custom-info-100,
+  "custom-info-20": $custom-info-20,
+  "custom-info-10": $custom-info-10,
+
+  // Alert
+  "custom-alert-120": $custom-alert-120,
+  "custom-alert-100": $custom-alert-100,
+  "custom-alert-20": $custom-alert-20,
+  "custom-alert-10": $custom-alert-10,
+
+  // Error
+  "custom-error-120": $custom-error-120,
+  "custom-error-100": $custom-error-100,
+  "custom-error-20": $custom-error-20,
+  "custom-error-10": $custom-error-10,
+
+  // 中性色 Neutral
+  // 文字顏色、系統性 Icon等。
+  "custom-neutral-bg": $custom-neutral-bg,
+  "custom-neutral-100": $custom-neutral-100,
+  "custom-neutral-80": $custom-neutral-80,
+  "custom-neutral-60": $custom-neutral-60,
+  "custom-neutral-40": $custom-neutral-40,
+  "custom-neutral-10": $custom-neutral-10,
+  "custom-neutral-0": $custom-neutral-0,
+
 ) !default;
 // scss-docs-end theme-colors-map
 
@@ -914,7 +959,7 @@ $h10-font-size:               $font-size-base * 0.625 !default;    // *custom
 
 $font-sizes: (
   1: $h1-font-size,   // 48px  .fs-1
-  2: $h2-font-size,   // 40px  .fs-2
+  2: $h2-font-size,   // 401px  .fs-2
   3: $h3-font-size,   // 32px  .fs-3
   4: $h4-font-size,   // 28px  .fs-4
   5: $h5-font-size,   // 24px  .fs-5
