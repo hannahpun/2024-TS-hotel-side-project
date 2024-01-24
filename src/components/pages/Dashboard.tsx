@@ -33,8 +33,8 @@ function Dashboard() {
                     <hr style={{width:"100%", height:"2px", background: "linear-gradient(90deg, #BE9C7C 0%, #FFF 100%"}} />
                   </div>
                   <div className="ms-38">
-                    <h2 className="fw-bold font-noto-tc-serif" style={{ fontSize:"100px"}}>高雄<br/>豪華住宿之選</h2>
-                    <p className="fs-3 fw-bold font-noto-tc-serif mb-15">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
+                    <h2 className="fw-bold font-noto-tc-serif text-custom-neutral-0" style={{ fontSize:"100px"}}>高雄<br/>豪華住宿之選</h2>
+                    <p className="fs-3 fw-bold font-noto-tc-serif text-custom-neutral-0 mb-15">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
                     <a href="#" className="w-100 fw-bold font-noto-tc-serif text-end btn btn-lg btn-custom-neutral-0 px-10 py-10">立即訂房</a>
                   </div>
                 </div>
@@ -197,7 +197,7 @@ function Dashboard() {
               <br />
               方式
             </h2>
-            <p className="fs-7 fwv-700 font-noto-tc-serif mt-40 mb-4">
+            <p className="fs-7 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-40 mb-4">
               台灣高雄市新興區六角路123號
             </p>
             <img src={map} style={{ width: "100%" }} alt="圖片1" className="" />
@@ -222,8 +222,8 @@ function Dashboard() {
                     </clipPath>
                   </defs>
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif mt-4 mb-2">自行開車</h3>
-                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif lh-base">
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">自行開車</h3>
+                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif text-custom-neutral-0 lh-base">
                   如果您選擇自行開車，可以透過國道一號下高雄交流道，往市區方向行駛，並依路標指示即可抵達「享樂酒店」。飯店內設有停車場，讓您停車方便。
                 </p>
               </div>
@@ -247,8 +247,8 @@ function Dashboard() {
                     </clipPath>
                   </defs>
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif mt-4 mb-2">高鐵/火車</h3>
-                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif lh-base">
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">高鐵/火車</h3>
+                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif text-custom-neutral-0 lh-base">
                   如果您是搭乘高鐵或火車，可於左營站下車，外頭有計程車站，搭乘計程車約20分鐘即可抵達。或者您也可以轉乘捷運紅線至中央公園站下車，步行約10分鐘便可抵達。
                 </p>
               </div>
@@ -265,8 +265,8 @@ function Dashboard() {
                     fill="#BF9D7D"
                   />
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif mt-4 mb-2">禮賓車服務</h3>
-                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif lh-base">
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">禮賓車服務</h3>
+                <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif text-custom-neutral-0 lh-base">
                   承億酒店提供禮賓專車接送服務，但因目的地遠近會有不同的收費，請撥打電話將由專人為您服務洽詢專線：(07)123-4567
                 </p>
               </div>

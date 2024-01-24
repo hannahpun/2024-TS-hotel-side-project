@@ -45,28 +45,28 @@ function Footer() {
           {/*Start of Contact Block*/}
           <div className="d-lg-flex flex-row">
             <div className="mb-4 me-lg-20">
-              <p className="fs-6 mb-2">TEL</p>
-              <p className="fs-6 mb-4 mb-lg-10">
+              <p className="fs-6 text-custom-neutral-0 mb-2">TEL</p>
+              <p className="fs-6 text-custom-neutral-0 mb-4 mb-lg-10">
                 <a href="tel:+886-7-1234567" className="text-light">
                   +886-7-1234567
                 </a>
               </p>
-              <p className="fs-6 mb-lg-2">FAX</p>
-              <p className="fs-6">
+              <p className="fs-6 text-custom-neutral-0 mb-lg-2">FAX</p>
+              <p className="fs-6 text-custom-neutral-0">
                 <a href="tel:+886-7-1234567" className="text-light">
                   +886-7-1234567
                 </a>
               </p>
             </div>
             <div className="">
-              <p className="fs-6 mb-2">MAIL</p>
-              <p className="fs-6 mb-4 mb-lg-10">
+              <p className="fs-6 text-custom-neutral-0 mb-2">MAIL</p>
+              <p className="fs-6 text-custom-neutral-0 mb-4 mb-lg-10">
                 <a href="mailto:elh@hexschool.com" className="text-light">
                   elh@hexschool.com
                 </a>
               </p>
-              <p className="fs-6 mb-2">WEB</p>
-              <p className="fs-6">
+              <p className="fs-6 text-custom-neutral-0 mb-2">WEB</p>
+              <p className="fs-6 text-custom-neutral-0">
                 <a
                   href="https://www.elhhexschool.com.tw"
                   className="text-light"
@@ -82,10 +82,10 @@ function Footer() {
 
         {/*Start of Bottom Block*/}
         <div className="d-lg-flex flex-row justify-content-between">
-          <p className="fs-8 fs-lg-7 fwv-400 fwv-lg-500 lh-base mb-4 mb-lg-0">
+          <p className="fs-8 fs-lg-7 fwv-400 fwv-lg-500 text-custom-neutral-0 lh-base mb-4 mb-lg-0">
             806023 台灣高雄市新興區六角路123號{" "}
           </p>
-          <p className="fs-8 fs-lg-7 fwv-400 fwv-lg-500 lh-base">
+          <p className="fs-8 fs-lg-7 fwv-400 fwv-lg-500 text-custom-neutral-0 lh-base">
             © 享樂酒店 2023 All Rights Reserved.
           </p>
         </div>

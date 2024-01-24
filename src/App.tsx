@@ -5,6 +5,7 @@ import Login from "@components/pages/Login";
 import ResetPW from "@components/pages/ResetPW";
 import NotFound from "@components/pages/NotFound";
 import Room from "@/components/pages/Room/Room";
+import RoomDetail from "@/components/pages/Room/RoomDetail";  // 房型詳細頁
 import User from "@components/pages/User/User";
 import Book from "@components/pages/Book/Book";
 import { Route, Routes } from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/password/reset" element={<ResetPW />} />
         <Route path="/room" element={<Room />} />
+        <Route path="/room-detail" element={<RoomDetail />} />
         <Route path="/user" element={<User />} />
         <Route path="/book" element={<Book />} />
         <Route path="*" element={<NotFound />} />
