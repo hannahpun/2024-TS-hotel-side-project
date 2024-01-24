@@ -2,9 +2,11 @@ import Signup from "@/components/pages/Signup/Signup";
 import LayoutDefault from "@components/layout/LayoutDefault";
 import Dashboard from "@components/pages/Dashboard";
 import Login from "@components/pages/Login";
+import ResetPW from "@components/pages/ResetPW";
 import NotFound from "@components/pages/NotFound";
 import Room from "@/components/pages/Room/Room";
 import User from "@components/pages/User/User";
+import Book from "@components/pages/Book/Book";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -14,8 +16,10 @@ function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/password/reset" element={<ResetPW />} />
         <Route path="/room" element={<Room />} />
         <Route path="/user" element={<User />} />
+        <Route path="/book" element={<Book />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </LayoutDefault>

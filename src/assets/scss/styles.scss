@@ -20,7 +20,7 @@ $offcanvas-box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175);
 $primary: #BF9D7D;
 $dart-bg: #140F0A;
 
-$body-color: #F7F2EE;
+$body-color: #140F0A;
 $body-bg: $dart-bg;
 
 $border-radius: .4rem;
@@ -35,7 +35,7 @@ $custom-primary-10: #F7F2EE !default;
 // navbar
 
 // input
-$input-bg: $body-color;
+$input-bg: #fff;
 $input-color: $dart-bg;
 $input-btn-padding-y: .7rem;
 $input-border-radius: 8px;
@@ -43,6 +43,7 @@ $input-border-radius: 8px;
 // button
 $btn-border-radius: 8px;
 $border-radius: 8px;
+
 
 
 // Required
@@ -93,6 +94,9 @@ $border-radius: 8px;
 // Utilities
 @import "bootstrap/scss/utilities/api";
 
+[data-bs-theme="light"] {
+    --bs-body-color: #140F0A;
+}
 
 //
 // Custom styles

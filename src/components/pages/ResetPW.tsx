@@ -5,20 +5,20 @@ import Input from "@components/atoms/Input";
 import Button from "@components/atoms/Button";
 import { useState } from "react";
 
-type LoginFormValues = {
+type ResetPWFormValues = {
   email: string;
-  password: string;
+  newPassword: string;
 };
 
-function Login() {
+function ResetPW() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginFormValues>({
+  } = useForm<ResetPWFormValues>({
     defaultValues: {
       email: "",
-      password: "",
+      newPassword: "",
     },
   });
 
@@ -26,14 +26,14 @@ function Login() {
   const [resErrorMsg, setResErrorMsg] = useState<Maybe<string>>(null);
   const [hasSubmit, setHasSubmit] = useState(false);
 
-  const onSubmit = async (data: LoginFormValues) => {
+  const onSubmit = async (data: ResetPWFormValues) => {
     setHasSubmit(true);
-    const response = await fetch("/api/v1/user/login", {
+    const response = await fetch("/api/v1/user/forgot", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ ...data, code: "0Zvjde" }),
     });
     const jsonData = await response.json();
     // if error happen
@@ -42,8 +42,8 @@ function Login() {
       setHasSubmit(false);
     }
     // success
-    localStorage.setItem("token", jsonData.token);
-    navigate("/user");
+    // localStorage.setItem("token", jsonData.token);
+    // navigate("/user");
   };
 
   return (
@@ -53,7 +53,7 @@ function Login() {
           <div className="col-12 col-md-4 offset-md-7">
             <div className="mb-4">
               <p className="h6 text-primary">享樂酒店，誠摯歡迎</p>
-              <h1>立即開始旅程</h1>
+              <h1>忘記密碼</h1>
             </div>
 
             <form onSubmit={handleSubmit(onSubmit)} className="row g-3">
@@ -70,34 +70,15 @@ function Login() {
                 type="text"
               />
               <Input
-                name="password"
-                placeholder="請輸入密碼"
-                displayName="密碼"
+                name="newPassword"
+                placeholder="請輸入新密碼"
+                displayName="新密碼"
                 errors={errors}
                 register={register}
                 rules={{ required: "必填欄位" }}
                 type="password"
               />
 
-              <div className="d-flex justify-content-between">
-                <div className="form-check ">
-                  <label className="form-check-label" htmlFor="RememberMe">
-                    記住帳號
-                  </label>
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    id="RememberMe"
-                    value="true"
-                  />
-                </div>
-                <Link
-                  className="nav-link text-primary d-inline"
-                  to="/password/reset"
-                >
-                  忘記密碼
-                </Link>
-              </div>
               {resErrorMsg && <p className="text-danger">{resErrorMsg}</p>}
               <Button type="submit">
                 {!hasSubmit ? (
@@ -109,9 +90,8 @@ function Login() {
             </form>
             <div className="col">
               <p>
-                沒有會員嗎？{" "}
-                <Link className="nav-link text-primary d-inline" to="/signup">
-                  前往註冊
+                <Link className="nav-link text-primary d-inline" to="/login">
+                  前往登入
                 </Link>
               </p>
             </div>
@@ -122,4 +102,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ResetPW;
