@@ -20,8 +20,9 @@ function App() {
         <Route path="/password/reset" element={<ResetPW />} />
         <Route path="/room" element={<Room />} />
         <Route path="/room-detail" element={<RoomDetail />} />
+        <Route path="/room/:id" element={<Room />} />
+        <Route path="/room/:id/book" element={<Book />} />
         <Route path="/user" element={<User />} />
-        <Route path="/book" element={<Book />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </LayoutDefault>
