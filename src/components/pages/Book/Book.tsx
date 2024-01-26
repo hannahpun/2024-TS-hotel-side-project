@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams, useLocation } from "react-router-dom";
 import { Maybe } from "@/types/helpers";
 
 // components
 import Input from "@components/atoms/Input";
 import InputSelect from "@components/atoms/InputSelect";
-import Button from "@components/atoms/Button";
 
 // static data
 import CityCountyData from "@/data/cityCountyData.json";
-import RoomsId from "@/data/rooms-id";
+import { RoomModel } from "@components/pages/Room/RoomModel";
 import room from "@assets/images/pc/room2-1.png";
 type AreaList = (typeof CityCountyData)[0]["AreaList"];
 
@@ -30,8 +30,9 @@ export default function Book() {
     formState: { errors },
   } = useForm<BookFormValues>();
 
+  const { id } = useParams();
   // 房間資訊
-  const [roomData, setRoomData] = useState<Maybe<typeof RoomsId>>(null);
+  const [roomData, setRoomData] = useState<Maybe<RoomModel>>(null);
   // 地址設定
   const [areaList, setAreaList] = useState<AreaList>([]);
   const watchCity = watch("addressCity");
@@ -39,10 +40,12 @@ export default function Book() {
   const inputCommonProp = { errors, register };
 
   const onSubmit = async (data: BookFormValues) => {};
+  let { state } = useLocation();
 
   useEffect(() => {
+    console.log("state: ", state);
     const fetchData = async () => {
-      const response = await fetch("/api/v1/rooms", {
+      const response = await fetch(`/api/v1/rooms/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +53,7 @@ export default function Book() {
       });
       const jsonData = await response.json();
 
-      console.log("jsonData: ", jsonData);
+      setRoomData(jsonData.result);
     };
     fetchData()
       // make sure to catch any error
@@ -58,7 +61,7 @@ export default function Book() {
   }, []);
   return (
     <div className="bg-primary-10" data-bs-theme="light">
-      <div className="container pt-10 pb-10 ">
+      <div className="container pt-10 pb-10">
         <div className="row gx-20 gy-6 mt-10">
           <div className="col-12 col-md-7">
             <h3 className="mb-10"> {`< 確認訂房資訊`}</h3>
@@ -73,7 +76,7 @@ export default function Book() {
                     />
                     <p>選擇房型</p>
                   </div>
-                  <p className="pt-2">尊爵雙人房</p>
+                  <p className="pt-2">{roomData?.name}</p>
                 </div>
                 <p>編輯</p>
               </div>
@@ -86,8 +89,8 @@ export default function Book() {
                     />
                     <p>訂房日期</p>
                   </div>
-                  <p className="pt-2">入住：6 月 10 日星期二</p>
-                  <p className="pt-2">退房：6 月 11 日星期三</p>
+                  <p className="pt-2">入住： {state.checkinDate} </p>
+                  <p className="pt-2">退房： {state.checkoutDate}</p>
                 </div>
                 <p>編輯</p>
               </div>
@@ -100,7 +103,7 @@ export default function Book() {
                     />
                     <p>房客人數</p>
                   </div>
-                  <p className="pt-2">2 人</p>
+                  <p className="pt-2">{state.people} 人</p>
                 </div>
                 <p>編輯</p>
               </div>
@@ -180,21 +183,10 @@ export default function Book() {
                 <p className="text-black">房內設備</p>
               </div>
               <div className="mt-6 p-6 bg-white rounded-2 row row-cols-2 row-cols-lg-5 g-0">
-                {[
-                  "平面電視",
-                  "衣櫃",
-                  "吹風機",
-                  "除濕機",
-                  "冰箱",
-                  "浴缸",
-                  "熱水壺",
-                  "書桌",
-                  "檯燈",
-                  "音響",
-                ].map((item, index) => (
+                {roomData?.facilityInfo.map((item, index) => (
                   <div className="d-flex gap-2" key={index}>
                     <i className="bi bi-check2 text-primary" />
-                    <p className="text-neutral-80">{item}</p>
+                    <p className="text-neutral-80">{item.title}</p>
                   </div>
                 ))}
               </div>
@@ -206,21 +198,10 @@ export default function Book() {
                 <p className="text-black">備品提供</p>
               </div>
               <div className="mt-6 p-6 bg-white rounded-2 row row-cols-2 row-cols-lg-5 g-0">
-                {[
-                  "衛生紙",
-                  "吊衣架",
-                  "拖鞋",
-                  "浴巾",
-                  "沐浴用品",
-                  "刷牙用品",
-                  "清潔用品",
-                  "罐裝水",
-                  "刮鬍刀",
-                  "梳子",
-                ].map((item, index) => (
+                {roomData?.amenityInfo.map((item, index) => (
                   <div className="d-flex gap-2" key={index}>
                     <i className="bi bi-check2 text-primary" />
-                    <p className="text-neutral-80">{item}</p>
+                    <p className="text-neutral-80">{item.title}</p>
                   </div>
                 ))}
               </div>
@@ -239,17 +220,13 @@ export default function Book() {
               />
               <h2 className="h6 text-neutral-80 mt-10">價格詳情</h2>
               <div className="d-flex align-items-center gap-3 mt-6 justify-content-between">
-                <p className="text-neutral-80">NT$ 10,000 x 2 晚</p>
-                <p>NT$ 20,000</p>
-              </div>
-              <div className="d-flex align-items-center gap-3 mt-2 justify-content-between">
-                <p className="text-neutral-80">住宿折扣</p>
-                <p className="text-primary">- NT$ 1,000</p>
+                <p className="text-neutral-80">NT$ {roomData?.price} x 2 晚</p>
+                <p>NT$ {(roomData?.price as number) * 2}</p>
               </div>
               <div className="bg-neutral-40 mt-6 mb-6" style={{ height: 1 }} />
               <div className="d-flex align-items-center gap-3 mt-2 justify-content-between">
                 <p className="text-neutral-80">總價</p>
-                <p>NT$ 19,000</p>
+                <p>NT$ {(roomData?.price as number) * 2}</p>
               </div>
 
               <div className="mt-10 d-flex gap-4">
