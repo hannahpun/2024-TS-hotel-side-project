@@ -17,11 +17,11 @@ function App() {
     <>
       <LayoutNoFooter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/password/reset" element={<ResetPW />} />
           <Route element={<LayoutDefault />}>
+            <Route path="/" element={<Dashboard />} />
             <Route path="/room" element={<Room />} />
             <Route path="/room/:id" element={<RoomDetail />} />
             <Route
