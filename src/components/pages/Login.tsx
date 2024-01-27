@@ -49,10 +49,10 @@ function Login() {
   return (
     <div className="login-bg">
       <div className="container">
-        <div className="d-flex  align-items-center">
+        <div className="d-flex  align-items-center set-height">
           <div className="col-12 col-md-4 offset-md-7">
             <div className="mb-4">
-              <p className="h6 text-primary">享樂酒店，誠摯歡迎</p>
+              <p className="text-primary">享樂酒店，誠摯歡迎</p>
               <h1>立即開始旅程</h1>
             </div>
 
@@ -92,7 +92,7 @@ function Login() {
                   />
                 </div>
                 <Link
-                  className="nav-link text-primary d-inline"
+                  className="nav-link text-primary d-inline text-decoration-underline"
                   to="/password/reset"
                 >
                   忘記密碼
@@ -110,7 +110,10 @@ function Login() {
             <div className="col">
               <p>
                 沒有會員嗎？{" "}
-                <Link className="nav-link text-primary d-inline" to="/signup">
+                <Link
+                  className="nav-link text-primary d-inline text-decoration-underline"
+                  to="/signup"
+                >
                   前往註冊
                 </Link>
               </p>

@@ -27,10 +27,9 @@ function Signup() {
   return (
     <div className="login-bg">
       <div className="container">
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center set-height">
           <div className="col-12 col-md-4 offset-md-7">
             <div className="mb-4">
-              <p className="h6 text-primary">享樂酒店，誠摯歡迎</p>
               <h1>立即註冊</h1>
             </div>
             {/* step */}
@@ -63,7 +62,10 @@ function Signup() {
             <div className="col">
               <p>
                 已經有會員了嗎？
-                <Link className="nav-link text-primary d-inline" to="/login">
+                <Link
+                  className="nav-link text-primary d-inline text-decoration-underline"
+                  to="/login"
+                >
                   立即登入
                 </Link>
               </p>

@@ -19,30 +19,74 @@ function Dashboard() {
       <div className="banner-card ">
         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide-to="0"
+              className="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#myCarousel"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active">
               <div className="position-absolute w-100 mt-29 ms-20 mb-41 me-20">
                 <div className="d-flex align-items-center">
                   <div className="">
-                    <p className="fs-2 fw-bold font-noto-tc-serif text-custom-primary-100 mb-1">享樂酒店</p>
-                    <p className="fs-5 fw-bold font-noto-tc-serif text-custom-primary-100 mb-10" style={{ marginRight:"311px"}}>Enjoyment Luxury Hotel</p>
-                    <hr style={{width:"100%", height:"2px", background: "linear-gradient(90deg, #BE9C7C 0%, #FFF 100%"}} />
+                    <p className="fs-2 fw-bold font-noto-tc-serif text-custom-primary-100 mb-1">
+                      享樂酒店
+                    </p>
+                    <p
+                      className="fs-5 fw-bold font-noto-tc-serif text-custom-primary-100 mb-10"
+                      style={{ marginRight: "311px" }}
+                    >
+                      Enjoyment Luxury Hotel
+                    </p>
+                    <hr
+                      style={{
+                        width: "100%",
+                        height: "2px",
+                        background:
+                          "linear-gradient(90deg, #BE9C7C 0%, #FFF 100%",
+                      }}
+                    />
                   </div>
                   <div className="ms-38">
-                    <h2 className="fw-bold font-noto-tc-serif text-custom-neutral-0" style={{ fontSize:"100px"}}>高雄<br/>豪華住宿之選</h2>
-                    <p className="fs-3 fw-bold font-noto-tc-serif text-custom-neutral-0 mb-15">我們致力於為您提供無與倫比的奢華體驗與優質服務</p>
-                    <a href="#" className="w-100 fw-bold font-noto-tc-serif text-end btn btn-lg btn-custom-neutral-0 px-10 py-10">立即訂房</a>
+                    <h2
+                      className="fw-bold font-noto-tc-serif text-custom-neutral-0"
+                      style={{ fontSize: "100px" }}
+                    >
+                      高雄
+                      <br />
+                      豪華住宿之選
+                    </h2>
+                    <p className="fs-3 fw-bold font-noto-tc-serif text-custom-neutral-0 mb-15">
+                      我們致力於為您提供無與倫比的奢華體驗與優質服務
+                    </p>
+                    <a
+                      href="#"
+                      className="w-100 fw-bold font-noto-tc-serif text-end btn btn-lg btn-custom-neutral-0 px-10 py-10"
+                    >
+                      立即訂房
+                    </a>
                   </div>
                 </div>
               </div>
               <img src={banner} width="100%" height="100%" alt="banner" />
-
-        </div>
-      </div>
+            </div>
+          </div>
           {/* <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
             <span className="visually-hidden">Previous</span>
@@ -52,8 +96,6 @@ function Dashboard() {
             <span className="visually-hidden">Next</span>
           </button> */}
         </div>
-
-
       </div>
       {/* End of Banner*/}
 
@@ -128,7 +170,7 @@ function Dashboard() {
       <div className="room-card">
         <div className="pt-lg-40 pb-lg-40 d-lg-flex flex-row">
           <img src={room1} style={{ width: "900px" }} />
-          <div className="pt-150 ms-20">
+          <div className="pt-150 ms-20 text-custom-neutral-0">
             <h3 className="fs-1 mb-4 font-noto-tc-serif">尊爵雙人房</h3>
             <p className="mb-10 font-noto-tc-serif">
               享受高級的住宿體驗，尊爵雙人房提供給您舒適寬敞的空間和精緻的裝潢。
@@ -222,7 +264,9 @@ function Dashboard() {
                     </clipPath>
                   </defs>
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">自行開車</h3>
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">
+                  自行開車
+                </h3>
                 <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif text-custom-neutral-0 lh-base">
                   如果您選擇自行開車，可以透過國道一號下高雄交流道，往市區方向行駛，並依路標指示即可抵達「享樂酒店」。飯店內設有停車場，讓您停車方便。
                 </p>
@@ -247,7 +291,9 @@ function Dashboard() {
                     </clipPath>
                   </defs>
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">高鐵/火車</h3>
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">
+                  高鐵/火車
+                </h3>
                 <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif text-custom-neutral-0 lh-base">
                   如果您是搭乘高鐵或火車，可於左營站下車，外頭有計程車站，搭乘計程車約20分鐘即可抵達。或者您也可以轉乘捷運紅線至中央公園站下車，步行約10分鐘便可抵達。
                 </p>
@@ -265,7 +311,9 @@ function Dashboard() {
                     fill="#BF9D7D"
                   />
                 </svg>
-                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">禮賓車服務</h3>
+                <h3 className="fs-7 fs-lg-5 fwv-700 font-noto-tc-serif text-custom-neutral-0 mt-4 mb-2">
+                  禮賓車服務
+                </h3>
                 <p className="fs-8 fs-lg-7 fwv-500 font-noto-tc-serif text-custom-neutral-0 lh-base">
                   承億酒店提供禮賓專車接送服務，但因目的地遠近會有不同的收費，請撥打電話將由專人為您服務洽詢專線：(07)123-4567
                 </p>
