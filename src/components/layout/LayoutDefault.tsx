@@ -1,15 +1,10 @@
-import Header from "@components/layout/Header";
 import Footer from "@components/layout/Footer";
+import { Outlet } from "react-router-dom";
 
-interface ILayoutDefaultProps {
-  children: React.ReactNode;
-}
-
-const LayoutDefault = (props: ILayoutDefaultProps) => {
+const LayoutDefault = () => {
   return (
     <>
-      <Header />
-      {props.children}
+      <Outlet />
       <Footer />
     </>
   );

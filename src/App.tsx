@@ -1,5 +1,7 @@
 import Signup from "@/components/pages/Signup/Signup";
 import LayoutDefault from "@components/layout/LayoutDefault";
+import LayoutNoFooter from "@components/layout/LayoutNoFooter";
+import RequireAuth from "@components/layout/RequireAuth";
 import Dashboard from "@components/pages/Dashboard";
 import Login from "@components/pages/Login";
 import ResetPW from "@components/pages/ResetPW";
@@ -12,19 +14,38 @@ import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <LayoutDefault>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/password/reset" element={<ResetPW />} />
-        <Route path="/room" element={<Room />} />
-        <Route path="/room/:id" element={<RoomDetail />} />
-        <Route path="/room/:id/book" element={<Book />} />
-        <Route path="/user" element={<User />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </LayoutDefault>
+    <>
+      <LayoutNoFooter>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/password/reset" element={<ResetPW />} />
+          <Route element={<LayoutDefault />}>
+            <Route path="/room" element={<Room />} />
+            <Route path="/room/:id" element={<RoomDetail />} />
+            <Route
+              path="/room/:id/book"
+              element={
+                <RequireAuth>
+                  <Book />
+                </RequireAuth>
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                <RequireAuth>
+                  <User />
+                </RequireAuth>
+              }
+            />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </LayoutNoFooter>
+    </>
   );
 }
 

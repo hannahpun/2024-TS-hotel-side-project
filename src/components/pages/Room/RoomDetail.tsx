@@ -339,8 +339,8 @@ export default function RoomDetail() {
                       to={`/room/${id}/book`}
                       state={{
                         people: 2,
-                        checkinDate: "2022/03/25",
-                        checkoutDate: "2022/03/26",
+                        checkinDate: "2022-03-25",
+                        checkoutDate: "2022-03-26",
                       }}
                     >
                       立即預訂

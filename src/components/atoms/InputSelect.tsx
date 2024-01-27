@@ -5,7 +5,8 @@ import {
   FieldErrors,
 } from "react-hook-form";
 
-interface IInputSelect<T extends FieldValues> {
+interface IInputSelect<T extends FieldValues>
+  extends React.ComponentProps<"select"> {
   name: Path<T>;
   errors: FieldErrors<T>;
   register: UseFormRegister<T>;
@@ -20,6 +21,7 @@ const InputSelect = <T extends FieldValues>({
   rules,
   defaultName = "",
   render,
+  ...props
 }: IInputSelect<T>) => {
   return (
     <>
@@ -27,6 +29,7 @@ const InputSelect = <T extends FieldValues>({
         id={name}
         className={`form-select ${errors[name] && "is-invalid"}`}
         {...register(name, rules)}
+        {...props}
       >
         {defaultName && <option value="">{defaultName}</option>}
         {render}
