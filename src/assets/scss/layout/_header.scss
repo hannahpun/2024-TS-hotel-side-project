@@ -1,4 +1,16 @@
-.header{
+.header {
   background: #69F0AE;
   font-size: 64px;
+}
+
+.logo {
+  width: 110px;
+
+  @media screen and (min-width: 992px) {
+    width: 196px;
+  }
+}
+
+.hover:hover {
+  background: $custom-primary-10 !important;
 }
