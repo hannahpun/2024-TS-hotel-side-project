@@ -44,6 +44,14 @@ interface BookFormValues extends BasicOrderInfo {
   addressDetail: string;
 }
 
+interface UserInfo extends User {
+  address: {
+    city?: string;
+    zipcode: number;
+    county?: string;
+    detail: string;
+  };
+}
 export default function Book() {
   const { id } = useParams();
   let { state } = useLocation();
@@ -120,7 +128,7 @@ export default function Book() {
     const {
       result,
       ...jsonData
-    }: { result: User; status: boolean; message: string } =
+    }: { result: UserInfo; status: boolean; message: string } =
       await response.json();
     setValue("name", result.name);
     setValue("email", result.email);

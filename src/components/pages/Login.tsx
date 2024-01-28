@@ -14,7 +14,7 @@ function Login() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
   } = useForm<LoginFormValues>({
     defaultValues: {
       email: "",
@@ -40,10 +40,11 @@ function Login() {
     if (!jsonData.status) {
       setResErrorMsg(jsonData.message);
       setHasSubmit(false);
+    } else {
+      // success
+      localStorage.setItem("token", jsonData.token);
+      navigate("/user");
     }
-    // success
-    localStorage.setItem("token", jsonData.token);
-    navigate("/user");
   };
 
   return (
@@ -99,7 +100,7 @@ function Login() {
                 </Link>
               </div>
               {resErrorMsg && <p className="text-danger">{resErrorMsg}</p>}
-              <Button type="submit">
+              <Button type="submit" disabled={!isDirty || !isValid}>
                 {!hasSubmit ? (
                   `會員登入`
                 ) : (
