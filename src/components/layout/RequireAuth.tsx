@@ -6,8 +6,7 @@ interface RequireAuth {
 
 function RequireAuth({ children }: RequireAuth) {
   const authed = localStorage.getItem("token");
-
-  return authed ? children : <Navigate to="/login" replace />;
+  return authed != undefined ? children : <Navigate to="/login" replace />;
 }
 
 export default RequireAuth;

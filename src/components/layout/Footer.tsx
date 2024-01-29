@@ -5,7 +5,7 @@ import Group from "@assets/images/Group.png";
 function Footer() {
   return (
     <footer className="footer">
-      <div className="container pt-20 pb-20 pt-lg-40 pb-lg-40">
+      <div className="container pt-20 pb-20">
         {/*Start of Top Block*/}
         <div className="d-lg-flex flex-row justify-content-between mb-20">
           {/*Start of LOGO Block*/}
