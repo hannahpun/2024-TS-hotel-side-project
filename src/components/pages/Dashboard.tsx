@@ -142,7 +142,9 @@ function Dashboard() {
       </div>
       {/* End of Banner*/}
       {spinner ? (
-        <Loading />
+        <div className="news-card py-10">
+          <Loading />
+        </div>
       ) : (
         <>
           {/* Start of 最新消息 */}
@@ -171,7 +173,7 @@ function Dashboard() {
                       </div>
 
                       <div className="col-12 col-md-7 d-flex flex-column align-self-center">
-                        <h3 className="fs-lg-3 fwv-700 text-dark mb-2 mb-lg-6">
+                        <h3 className="pt-lg-0 pt-5 fs-lg-3 fwv-700 text-dark mb-2 mb-lg-6">
                           {news.title}
                         </h3>
                         <p className="fs-lg-7 fwv-500 lh-base text-dark">
@@ -257,9 +259,16 @@ function Dashboard() {
           {/* End of 關於我們 */}
 
           {/* Start of 尊貴雙人房 */}
-          <div style={{ position: "relative" }} className="bg-black">
+          <div
+            style={{
+              position: "relative",
+              marginLeft: "15px",
+              marginRight: "15px",
+            }}
+            className="bg-black "
+          >
             <div
-              className="row align-content-stretch "
+              className="row"
               style={{
                 zIndex: 10,
                 position: "relative",
@@ -344,12 +353,12 @@ function Dashboard() {
                 </div>
               </div>
             </div>
-            <img
+            {/* <img
               style={{ position: "absolute", bottom: "0" }}
               className="d-block w-100"
               src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/master/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/bg.png"
               alt=""
-            />
+            /> */}
           </div>
 
           {/* End of 尊貴雙人房 */}
