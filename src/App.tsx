@@ -41,7 +41,14 @@ function App() {
                 </RequireAuth>
               }
             />
-          <Route path="/BookSuccess" element={<BookSuccess />} />
+            <Route
+              path="/:orderId/BookSuccess"
+              element={
+                <RequireAuth>
+                  <BookSuccess />
+                </RequireAuth>
+              }
+            />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

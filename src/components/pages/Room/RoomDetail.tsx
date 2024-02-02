@@ -31,8 +31,8 @@ export default function RoomDetail() {
   }, []);
 
   const [count, setCount] = useState<number>(2);
-  const [checkInDate, setCheckInDate] = useState<string>("");
-  const [checkOutDate, setCheckOutDate] = useState<string>("");
+  const [checkInDate, setCheckInDate] = useState<string>("2024-02-05");
+  const [checkOutDate, setCheckOutDate] = useState<string>("2024-02-06");
   const handleDecrementClick = () => {
     setCount(count - 1);
   };
@@ -406,6 +406,7 @@ export default function RoomDetail() {
                           id="start"
                           name="trip-start"
                           className="fs-7 w-100 border-0"
+                          value={checkInDate}
                           onChange={(event) =>
                             setCheckInDate(event.target.value)
                           }
@@ -431,6 +432,7 @@ export default function RoomDetail() {
                           id="end"
                           name="trip-start"
                           className="fs-7 w-100 border-0"
+                          value={checkOutDate}
                           onChange={(event) =>
                             setCheckOutDate(event.target.value)
                           }

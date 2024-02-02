@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import { Maybe } from "@/types/helpers";
 
 // components
@@ -71,6 +71,8 @@ export default function Book() {
     },
   });
 
+  const navigate = useNavigate();
+
   const [editRoomInfo, setEditRoomInfo] = useState({
     editedRoomType: false,
     editedDate: false,
@@ -106,17 +108,27 @@ export default function Book() {
         email: data.email,
       },
     };
-    const response = await fetch("/api/v1/orders", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: JSON.stringify(postOrderBody),
-    });
-    const jsonData = await response.json();
-    if (!jsonData.status) {
-      setResErrorMsg(jsonData.message);
+    try {
+      const response = await fetch("/api/v1/orders", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify(postOrderBody),
+      });
+      const jsonData = await response.json();
+      const {
+        result: { _id },
+      } = jsonData;
+
+      if (!jsonData.status) {
+        setResErrorMsg(jsonData.message);
+        return;
+      }
+      navigate(`/${_id}/BookSuccess`);
+    } catch (err) {
+      console.log(err); // TypeError: failed to fetch
     }
   };
   const applyUserInfo = async () => {
