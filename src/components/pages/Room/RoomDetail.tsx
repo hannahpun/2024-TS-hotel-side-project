@@ -32,14 +32,100 @@ export default function RoomDetail() {
       .catch(console.error);
   }, []);
 
+  const [count, setCount] = useState<number>(2);
+  const handleDecrementClick = () => {
+    setCount(count - 1);
+  };
+
+  const handleIncrementClick = () => {
+    setCount(count + 1);
+  };
+
   return (
     <>
       <div className="bg-primary-10 ">
+
+{/* start of banner carousel */}
+<div className="d-sm-block d-lg-none">
+          
+          <div id="Carousel" className="carousel slide" data-bs-ride="carousel">
+            <div className="carousel-indicators">
+                {/*indicators*/}
+                <button type="button" data-bs-target="#Carousel" data-bs-slide-to="0" className="active"  aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#Carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#Carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#Carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#Carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            </div>
+            <div className="carousel-inner">
+                {/*imgs*/}
+              <div className="carousel-item w-100 active">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-1.png" className="img-fluid" alt="room" />
+              </div>
+
+              <div className="carousel-item w-100">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-2.png" className="img-fluid" alt="room" />
+              </div>
+
+              <div className="carousel-item w-100">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-3.png" className="img-fluid" alt="room" />
+              </div>
+
+              <div className="carousel-item w-100">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-4.png" className="img-fluid" alt="room" />
+              </div>
+
+              <div className="carousel-item w-100">
+                <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-5.png" className="img-fluid" alt="room" />
+              </div>                  
+            </div>
+
+            <button className="carousel-control-prev" type="button" data-bs-target="#Carousel" data-bs-slide="prev">
+                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next" type="button" data-bs-target="#Carousel" data-bs-slide="next">
+                <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                <span className="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+        {/* end of banner carousel */}
+
+
         <div className="container pt-10 pb-10">
           {spinner ? (
             <Loading />
           ) : (
             <div className="row gx-20 gy-6 mt-10">
+              {/* start of block banner */}
+              <div className="d-none d-lg-block">
+                <div className="d-flex">
+                    <div className="d-flex w-50 me-1">
+                      <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-1.png" className="img-fluid object-fit-cover rounded-left" alt="room" />
+                    </div>
+                    <div className="w-50 d-flex flex-column ms-1">
+                      <div className="d-flex mb-1">
+                        <div className="w-50 me-1">
+                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-2.png" className="img-fluid object-fit-cover" alt="room" />
+                        </div>
+                        <div className="w-50 ms-1">
+                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-3.png" className="img-fluid object-fit-cover rounded-top" alt="room" />
+                        </div>
+                      </div>
+                      <div className="d-flex mt-1">
+                        <div className="w-50 me-1">
+                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-4.png" className="img-fluid object-fit-cover" alt="room" />
+                        </div>
+                        <div className="w-50 ms-1">
+                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-5.png" className="img-fluid object-fit-cover rounded-bottom" alt="room" />
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            {/* end of block banner */}
+
               {/* 左欄 */}
               <div className="col-12 col-md-7">
                 <h3 className="fs-3 fs-lg-1 fw-bold font-noto-tc-serif text-custom-neutral-100 mb-4">
@@ -103,7 +189,7 @@ export default function RoomDetail() {
                       viewBox="0 0 24 25"
                       fill="none"
                     >
-                      <g clip-path="url(#clip0_40_7566)">
+                      <g clipPath="url(#clip0_40_7566)">
                         <path
                           d="M12 12.5C14.21 12.5 16 10.71 16 8.5C16 6.29 14.21 4.5 12 4.5C9.79 4.5 8 6.29 8 8.5C8 10.71 9.79 12.5 12 12.5ZM12 14.5C9.33 14.5 4 15.84 4 18.5V20.5H20V18.5C20 15.84 14.67 14.5 12 14.5Z"
                           fill="#BF9D7D"
@@ -231,7 +317,7 @@ export default function RoomDetail() {
                           padding: "16px",
                         }}
                       >
-                        <label for="start">
+                        <label htmlFor="start">
                           <span className="fs-9 font-noto-tc-serif text-custom-neutral-100">
                             入住
                           </span>
@@ -242,7 +328,7 @@ export default function RoomDetail() {
                           id="start"
                           name="trip-start"
                           className="fs-7 w-100 border-0"
-                          value="2018-07-22"
+                          defaultValue="2018-07-22"
                           min="2018-01-01"
                           max="2018-12-31"
                         />
@@ -256,7 +342,7 @@ export default function RoomDetail() {
                           padding: "16px",
                         }}
                       >
-                        <label for="end">
+                        <label htmlFor="end">
                           <span className="fs-9 font-noto-tc-serif text-custom-neutral-100">
                             退房
                           </span>
@@ -267,7 +353,7 @@ export default function RoomDetail() {
                           id="end"
                           name="trip-start"
                           className="fs-7 w-100 border-0"
-                          value="2018-07-22"
+                          defaultValue="2018-07-22"
                           min="2018-01-01"
                           max="2018-12-31"
                         />
@@ -288,6 +374,7 @@ export default function RoomDetail() {
                             border: "1px solid #ECECEC",
                             padding: "16px",
                           }}
+                          onClick={handleDecrementClick}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -304,7 +391,7 @@ export default function RoomDetail() {
                           className="fs-6 fw-bold font-noto-tc-serif text-custom-neutral-100 ms-4 me-4"
                           id=""
                         >
-                          2
+                          {count}
                         </span>
 
                         <button
@@ -315,6 +402,7 @@ export default function RoomDetail() {
                             border: "1px solid #ECECEC",
                             padding: "16px",
                           }}
+                          onClick={handleIncrementClick}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
