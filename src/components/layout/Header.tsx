@@ -11,7 +11,23 @@ function Header() {
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(true);
+  const [headerBgColor, setHeaderBgColor] = useState("transparent");
   const [user, setUser] = useState<User>();
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 50) {
+        setHeaderBgColor("#140F0A");
+      } else {
+        setHeaderBgColor("transparent");
+      }
+    }
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -40,7 +56,11 @@ function Header() {
     <>
       <div
         className="position-fixed px-3 px-lg-10 py-4 py-lg-3 vw-100 d-flex align-items-center justify-content-between"
-        style={{ zIndex: 1 }}
+        style={{
+          zIndex: 3,
+          backgroundColor: headerBgColor,
+          transition: "all 0.3s",
+        }}
       >
         <Link to="/">
           <img src={logo} alt="Logo" className="logo" />

@@ -21,7 +21,7 @@ function UserDetail({ setStep, formData, setFormData }: UserDetail) {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
   } = useForm<UserDetailFormValues>();
 
   // invalid email 錯誤訊息
@@ -45,10 +45,13 @@ function UserDetail({ setStep, formData, setFormData }: UserDetail) {
     const jsonData = await response.json();
     if (!jsonData.status) {
       setInValidEmailMsg(jsonData.message);
+      return;
     }
     if (jsonData.status && jsonData.result?.isEmailExists) {
       setInValidEmailMsg("此 Email 已存在");
+      return;
     }
+    setInValidEmailMsg(null);
   };
 
   return (
@@ -90,7 +93,9 @@ function UserDetail({ setStep, formData, setFormData }: UserDetail) {
           },
         }}
       />
-      <Button type="submit">下一步</Button>
+      <Button type="submit" disabled={!isDirty || !isValid}>
+        下一步
+      </Button>
     </form>
   );
 }

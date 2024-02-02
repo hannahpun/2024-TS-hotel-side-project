@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Maybe } from "@/types/helpers";
 import Input from "@components/atoms/Input";
 import Button from "@components/atoms/Button";
@@ -14,7 +14,7 @@ function ResetPW() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
   } = useForm<ResetPWFormValues>({
     defaultValues: {
       email: "",
@@ -22,7 +22,6 @@ function ResetPW() {
     },
   });
 
-  const navigate = useNavigate();
   const [resErrorMsg, setResErrorMsg] = useState<Maybe<string>>(null);
   const [hasSubmit, setHasSubmit] = useState(false);
 
@@ -41,18 +40,14 @@ function ResetPW() {
       setResErrorMsg(jsonData.message);
       setHasSubmit(false);
     }
-    // success
-    // localStorage.setItem("token", jsonData.token);
-    // navigate("/user");
   };
 
   return (
     <div className="login-bg">
       <div className="container">
-        <div className="d-flex  align-items-center">
+        <div className="d-flex  align-items-center set-height">
           <div className="col-12 col-md-4 offset-md-7">
             <div className="mb-4">
-              <p className="h6 text-primary">享樂酒店，誠摯歡迎</p>
               <h1>忘記密碼</h1>
             </div>
 
@@ -80,7 +75,7 @@ function ResetPW() {
               />
 
               {resErrorMsg && <p className="text-danger">{resErrorMsg}</p>}
-              <Button type="submit">
+              <Button type="submit" disabled={!isDirty || !isValid}>
                 {!hasSubmit ? (
                   `會員登入`
                 ) : (

@@ -27,7 +27,7 @@ function PersonalDetail({ formData }: PersonalDetail) {
     register,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
   } = useForm<PersonalDetailFormValues>();
 
   // 地址設定
@@ -182,7 +182,9 @@ function PersonalDetail({ formData }: PersonalDetail) {
         </div>
       </div>
       {resErrorMsg && <p className="text-danger">{resErrorMsg}</p>}
-      <Button type="submit">完成註冊</Button>
+      <Button type="submit" disabled={!isDirty || !isValid}>
+        完成註冊
+      </Button>
     </form>
   );
 }
