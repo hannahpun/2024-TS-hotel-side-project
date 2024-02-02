@@ -4,7 +4,6 @@ import Loading from "@components/atoms/Loading";
 import { RoomCard } from "./RoomCard";
 import { RoomModel } from "./RoomModel";
 import banner from "assets/images/pc/banner.png";
-import logo from "@assets/images/logo.png";
 
 export default function Room() {
   // 房間資訊
@@ -36,7 +35,7 @@ export default function Room() {
   return (
     <>
       <div className="banner-card ">
-      <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
+        <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             <button
               type="button"
@@ -61,15 +60,24 @@ export default function Room() {
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <div className="position-absolute w-100 d-flex align-items-center" style={{top:0, bottom:0, backgroundColor: 'rgba(0,0,0,0.5)'}}>
+              <div
+                className="position-absolute w-100 d-flex align-items-center"
+                style={{
+                  top: 0,
+                  bottom: 0,
+                  backgroundColor: "rgba(0,0,0,0.5)",
+                }}
+              >
                 <div className="w-50 mx-auto">
                   <div className="row">
                     <div className="col-md-6 text-center text-md-start text-primary">
-                      <h2>享樂酒店</h2> 
-                      <h5>Enjoyment Luxury Hotel</h5> 
+                      <h2>享樂酒店</h2>
+                      <h5>Enjoyment Luxury Hotel</h5>
                     </div>
                     <div className="col-md-6">
-                      <h1 className="text-white text-center fw-bold mt-10 mt-md-0">客房旅宿</h1>
+                      <h1 className="text-white text-center fw-bold mt-10 mt-md-0">
+                        客房旅宿
+                      </h1>
                     </div>
                   </div>
                 </div>
