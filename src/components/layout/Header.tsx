@@ -68,7 +68,7 @@ function Header() {
         {pathname !== "/login" && pathname !== "/signup" && (
           <>
             <div className="d-none d-lg-flex gap-4">
-              <Link className="px-4 py-4 text-white" to="/">
+              <Link className="px-4 py-4 text-white" to="/Room">
                 客房旅宿
               </Link>
               {user ? (

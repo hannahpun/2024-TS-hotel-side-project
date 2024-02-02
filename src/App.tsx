@@ -11,6 +11,7 @@ import RoomDetail from "@/components/pages/Room/RoomDetail"; // 房型詳細頁
 import User from "@components/pages/User/User";
 import Book from "@components/pages/Book/Book";
 import { Route, Routes } from "react-router-dom";
+import BookSuccess from "@/components/pages/BookSuccess/BookSuccess";
 
 function App() {
   return (
@@ -40,8 +41,8 @@ function App() {
                 </RequireAuth>
               }
             />
+          <Route path="/BookSuccess" element={<BookSuccess />} />
           </Route>
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </LayoutNoFooter>
