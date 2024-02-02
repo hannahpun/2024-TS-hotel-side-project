@@ -32,21 +32,11 @@ export default function RoomDetail() {
       .catch(console.error);
   }, []);
 
-  const [count, setCount] = useState<number>(2);
-  const handleDecrementClick = () => {
-    setCount(count - 1);
-  };
-
-  const handleIncrementClick = () => {
-    setCount(count + 1);
-  };
-
   return (
     <>
       <div className="bg-primary-10 ">
-
-{/* start of banner carousel */}
-<div className="d-sm-block d-lg-none">
+        {/* start of banner carousel */}
+        <div className="d-sm-block d-lg-none">
           
           <div id="Carousel" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-indicators">
@@ -92,37 +82,35 @@ export default function RoomDetail() {
         </div>
         {/* end of banner carousel */}
 
-
         <div className="container pt-10 pb-10">
           {spinner ? (
             <Loading />
           ) : (
             <div className="row gx-20 gy-6 mt-10">
+
               {/* start of block banner */}
               <div className="d-none d-lg-block">
-                <div className="d-flex">
-                    <div className="d-flex w-50 me-1">
-                      <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-1.png" className="img-fluid object-fit-cover rounded-left" alt="room" />
-                    </div>
-                    <div className="w-50 d-flex flex-column ms-1">
-                      <div className="d-flex mb-1">
-                        <div className="w-50 me-1">
-                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-2.png" className="img-fluid object-fit-cover" alt="room" />
-                        </div>
-                        <div className="w-50 ms-1">
-                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-3.png" className="img-fluid object-fit-cover rounded-top" alt="room" />
-                        </div>
+                <div className="row g-2">
+                  <div className="col-6">
+                    <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-1.png" className="img-fluid rounded-1" alt="room" />
+                  </div>
+                  <div className="col-6">
+                    <div className="row g-2">
+                      <div className="col-6">
+                        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-2.png" className="img-fluid" alt="room" />
                       </div>
-                      <div className="d-flex mt-1">
-                        <div className="w-50 me-1">
-                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-4.png" className="img-fluid object-fit-cover" alt="room" />
-                        </div>
-                        <div className="w-50 ms-1">
-                          <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-5.png" className="img-fluid object-fit-cover rounded-bottom" alt="room" />
-                        </div>
+                      <div className="col-6"> 
+                        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-3.png" className="img-fluid rounded-top" alt="room" />
+                      </div>
+                      <div className="col-6">
+                        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-4.png" className="img-fluid" alt="room" />
+                      </div>
+                      <div className="col-6">
+                        <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-5.png" className="img-fluid h-100 rounded-bottom" alt="room" />
                       </div>
                     </div>
-                </div>
+                  </div>
+                </div> 
             </div>
             {/* end of block banner */}
 
@@ -374,7 +362,6 @@ export default function RoomDetail() {
                             border: "1px solid #ECECEC",
                             padding: "16px",
                           }}
-                          onClick={handleDecrementClick}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -391,7 +378,7 @@ export default function RoomDetail() {
                           className="fs-6 fw-bold font-noto-tc-serif text-custom-neutral-100 ms-4 me-4"
                           id=""
                         >
-                          {count}
+                          2
                         </span>
 
                         <button
@@ -402,7 +389,6 @@ export default function RoomDetail() {
                             border: "1px solid #ECECEC",
                             padding: "16px",
                           }}
-                          onClick={handleIncrementClick}
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
