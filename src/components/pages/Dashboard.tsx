@@ -2,10 +2,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useState } from "react";
 import fakeNews from "@/data/fakeData/news";
 import fakeFood from "@/data/fakeData/culinary";
-import fakeRooms from "@/data/fakeData/rooms";
 import Loading from "@components/atoms/Loading";
 import "swiper/css";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Maybe } from "@/types/helpers";
 import room1 from "@assets/images/pc/room1.png";
 import map from "@assets/images/pc/map.png";
@@ -15,8 +14,8 @@ function Dashboard() {
   // data
   const [newsData, setNewsData] =
     useState<Maybe<(typeof fakeNews)["result"]>>(null);
-  const [roomsData, setRoomsData] =
-    useState<Maybe<(typeof fakeRooms)["result"]>>(null);
+  // const [roomsData, setRoomsData] =
+  //   useState<Maybe<(typeof fakeRooms)["result"]>>(null);
   const [foodData, setFoodData] =
     useState<Maybe<(typeof fakeFood)["result"]>>(null);
 
@@ -27,17 +26,17 @@ function Dashboard() {
     const fetchData = async () => {
       // 取得 news 資料
       const newsRes = await fetch(`/api/v1/home/news`);
-      const newsData = await newsRes.json();
+      const newsData: typeof fakeNews = await newsRes.json();
       setNewsData(newsData.result);
 
       // 取得 rooms 資料
-      const roomsRes = await fetch(`/api/v1/rooms`);
-      const roomsData = await roomsRes.json();
-      setRoomsData(roomsData.result);
+      // const roomsRes = await fetch(`/api/v1/rooms`);
+      // const roomsData: typeof fakeRooms = await roomsRes.json();
+      // setRoomsData(roomsData.result);
 
       // 取得 food 資料
       const foodRes = await fetch(`/api/v1/home/culinary`);
-      const foodData = await foodRes.json();
+      const foodData: typeof fakeFood = await foodRes.json();
       setFoodData(foodData.result);
 
       setSpinner(false);
