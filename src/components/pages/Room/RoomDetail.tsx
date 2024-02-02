@@ -163,41 +163,19 @@ export default function RoomDetail() {
                 <div className="row g-2">
                   <div className="col-6">
                     <img
-                      src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-1.png"
+                      src={roomData?.imageUrlList[0]}
                       className="img-fluid rounded-1"
                       alt="room"
                     />
                   </div>
+
                   <div className="col-6">
                     <div className="row g-2">
-                      <div className="col-6">
-                        <img
-                          src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-2.png"
-                          className="img-fluid"
-                          alt="room"
-                        />
-                      </div>
-                      <div className="col-6">
-                        <img
-                          src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-3.png"
-                          className="img-fluid rounded-top"
-                          alt="room"
-                        />
-                      </div>
-                      <div className="col-6">
-                        <img
-                          src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-4.png"
-                          className="img-fluid"
-                          alt="room"
-                        />
-                      </div>
-                      <div className="col-6">
-                        <img
-                          src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/typescript-hotel/%E6%A1%8C%E6%A9%9F%E7%89%88/room2-5.png"
-                          className="img-fluid h-100 rounded-bottom"
-                          alt="room"
-                        />
-                      </div>
+                      {roomData?.imageUrlList.slice(1, 5).map((img, i) => (
+                        <div className="col-6" key={i}>
+                          <img src={img} className="img-fluid" alt="room" />
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
