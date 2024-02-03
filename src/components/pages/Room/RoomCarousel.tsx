@@ -22,6 +22,7 @@ export function RoomCarousel({
         type="button"
         data-bs-target={"#" + carouselId}
         data-bs-slide-to={i}
+        data-img={img}
         className={className}
         key={i}
       ></button>
