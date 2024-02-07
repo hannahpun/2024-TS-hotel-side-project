@@ -71,6 +71,7 @@ function UserProfile({
             value={oldPassword}
             onChange={(e) => setOldPassword(e.target.value)}
             required
+            type="password"
           />
           <p className="mt-6 text-black">新密碼</p>
           <input
@@ -79,6 +80,7 @@ function UserProfile({
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
             required
+            type="password"
           />
           <p className="mt-6 text-black">確認新密碼</p>
           <input
@@ -87,6 +89,7 @@ function UserProfile({
             value={confirmNewPassword}
             onChange={(e) => setConfirmNewPassword(e.target.value)}
             required
+            type="password"
           />
           <button
             className={`px-8 py-4 ${

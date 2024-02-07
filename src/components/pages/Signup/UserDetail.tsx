@@ -87,6 +87,7 @@ function UserDetail({ setStep, formData, setFormData }: UserDetail) {
         displayName="確認密碼"
         errors={errors}
         register={register}
+        type="password"
         rules={{
           required: "必填欄位",
           validate: (val: string) => {
