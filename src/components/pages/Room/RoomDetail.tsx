@@ -160,7 +160,7 @@ export default function RoomDetail() {
           {spinner ? (
             <Loading />
           ) : (
-            <div className="row gx-20 gy-6 mt-10">
+            <div className="row gy-6 mt-10">
               {/* start of block banner */}
               <div className="d-none d-lg-block">
                 <div className="row g-2">

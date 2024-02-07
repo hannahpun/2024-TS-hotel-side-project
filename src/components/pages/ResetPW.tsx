@@ -7,6 +7,7 @@ import { useState } from "react";
 
 type ResetPWFormValues = {
   email: string;
+  code: string;
   newPassword: string;
 };
 
@@ -14,17 +15,31 @@ function ResetPW() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors, isDirty, isValid },
-  } = useForm<ResetPWFormValues>({
-    defaultValues: {
-      email: "",
-      newPassword: "",
-    },
-  });
+  } = useForm<ResetPWFormValues>();
 
   const [resErrorMsg, setResErrorMsg] = useState<Maybe<string>>(null);
+  const [resCodeErrorMsg, setResCodeErrorMsg] = useState<Maybe<string>>(null);
   const [hasSubmit, setHasSubmit] = useState(false);
 
+  const onHandleSubmitCode = async (data: ResetPWFormValues["email"]) => {
+    const response = await fetch(
+      "https://freyja-uj95.onrender.com/api/v1/verify/generateEmailCode",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: data }),
+      }
+    );
+    const jsonData = await response.json();
+    // if error happen
+    if (!jsonData.status) {
+      setResCodeErrorMsg(jsonData.message);
+    }
+  };
   const onSubmit = async (data: ResetPWFormValues) => {
     setHasSubmit(true);
     const response = await fetch(
@@ -34,7 +49,7 @@ function ResetPW() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...data, code: "0Zvjde" }),
+        body: JSON.stringify({ ...data }),
       }
     );
     const jsonData = await response.json();
@@ -43,6 +58,8 @@ function ResetPW() {
       setResErrorMsg(jsonData.message);
       setHasSubmit(false);
     }
+
+    setHasSubmit(false);
   };
 
   return (
@@ -60,12 +77,36 @@ function ResetPW() {
                 displayName="電子信箱"
                 placeholder="請輸入信箱"
                 errors={errors}
+                onChange={() => {
+                  setResCodeErrorMsg("");
+                }}
                 register={register}
                 rules={{
                   required: "必填欄位",
                   pattern: { value: /^\S+@\S+$/i, message: "格式不對" },
                 }}
                 type="text"
+              />
+              <a
+                href="javascript:void(0)"
+                onClick={() => {
+                  onHandleSubmitCode(getValues("email"));
+                }}
+                className="text-decoration-underline"
+              >
+                發送驗證碼
+              </a>
+              {resCodeErrorMsg && (
+                <p className="text-danger">{resCodeErrorMsg}</p>
+              )}
+              <Input
+                name="code"
+                placeholder="請輸入驗證碼"
+                displayName="驗證碼"
+                errors={errors}
+                register={register}
+                rules={{ required: "必填欄位" }}
+                type="password"
               />
               <Input
                 name="newPassword"

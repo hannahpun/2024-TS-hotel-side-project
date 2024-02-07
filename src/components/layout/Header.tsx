@@ -35,6 +35,8 @@ function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    const authed = localStorage.getItem("token");
+
     const getUserProfile = async () => {
       const response = await fetch(
         "https://freyja-uj95.onrender.com/api/v1/user",
@@ -52,7 +54,9 @@ function Header() {
         });
       }
     };
-    getUserProfile();
+    if (authed != undefined) {
+      getUserProfile();
+    }
   }, [pathname]);
 
   return (

@@ -214,7 +214,7 @@ export default function Book() {
         {spinner ? (
           <Loading />
         ) : (
-          <div className="row gx-20 gy-6 mt-10">
+          <div className="row gy-6 mt-10">
             <div className="col-12 col-md-7">
               <h3 className="mb-10">
                 <Link
