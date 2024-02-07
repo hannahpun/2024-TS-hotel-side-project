@@ -312,7 +312,7 @@ function UserOrder() {
 
   return (
     <>
-      <div className="row gx-10 gy-6 mt-10">
+      <div className="row gy-6 mt-10">
         {renderIncomingOrder()}
         {renderPastOrders()}
       </div>

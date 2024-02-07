@@ -298,7 +298,7 @@ function UserProfile({
   };
 
   return (
-    <div className="row gx-10 gy-6 mt-10">
+    <div className="row gy-6 mt-10">
       <div className="col-12 col-md-5">
         <div className="bg-white flex-fill p-10 rounded-4">
           <h2 className="h5 text-black">修改帳號資料</h2>
