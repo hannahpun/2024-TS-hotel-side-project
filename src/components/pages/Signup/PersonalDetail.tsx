@@ -49,22 +49,25 @@ function PersonalDetail({ formData }: PersonalDetail) {
   }, [watchCity]);
 
   const onSubmit = async (data: PersonalDetailFormValues) => {
-    const response = await fetch("/api/v1/user/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...formData,
-        name: data.name,
-        phone: data.phone,
-        birthday: `${data.birthdayY}/${data.birthdayM}/${data.birthdayD}`,
-        address: {
-          zipcode: parseInt(data.addressZipcode),
-          detail: data.addressDetail,
+    const response = await fetch(
+      "https://freyja-uj95.onrender.com/api/v1/user/signup",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      }),
-    });
+        body: JSON.stringify({
+          ...formData,
+          name: data.name,
+          phone: data.phone,
+          birthday: `${data.birthdayY}/${data.birthdayM}/${data.birthdayD}`,
+          address: {
+            zipcode: parseInt(data.addressZipcode),
+            detail: data.addressDetail,
+          },
+        }),
+      }
+    );
     const jsonData = await response.json();
     if (!jsonData.status) {
       setResErrorMsg(jsonData.message);

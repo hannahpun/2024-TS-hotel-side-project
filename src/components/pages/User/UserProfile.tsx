@@ -17,7 +17,7 @@ function UserProfile({
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
 
   const submitPasswordForm = async () => {
-    await fetch("/api/v1/user", {
+    await fetch("https://freyja-uj95.onrender.com/api/v1/user", {
       method: "PUT",
       headers: new Headers({
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -31,7 +31,7 @@ function UserProfile({
     });
   };
   const submitProfileForm = async () => {
-    await fetch("/api/v1/user", {
+    await fetch("https://freyja-uj95.onrender.com/api/v1/user", {
       method: "PUT",
       headers: new Headers({
         Authorization: `Bearer ${localStorage.getItem("token")}`,

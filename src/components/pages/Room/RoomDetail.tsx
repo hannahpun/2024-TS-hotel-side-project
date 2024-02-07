@@ -14,12 +14,15 @@ export default function RoomDetail() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`/api/v1/rooms/${id}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `https://freyja-uj95.onrender.com/api/v1/rooms/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const jsonData = await response.json();
 
       setRoomData(jsonData.result);

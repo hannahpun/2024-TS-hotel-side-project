@@ -28,13 +28,16 @@ function Login() {
 
   const onSubmit = async (data: LoginFormValues) => {
     setHasSubmit(true);
-    const response = await fetch("/api/v1/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://freyja-uj95.onrender.com/api/v1/user/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
     const jsonData = await response.json();
     // if error happen
     if (!jsonData.status) {

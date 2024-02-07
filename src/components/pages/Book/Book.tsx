@@ -109,14 +109,17 @@ export default function Book() {
       },
     };
     try {
-      const response = await fetch("/api/v1/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify(postOrderBody),
-      });
+      const response = await fetch(
+        "https://freyja-uj95.onrender.com/api/v1/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(postOrderBody),
+        }
+      );
       const jsonData = await response.json();
       const {
         result: { _id },
@@ -132,11 +135,14 @@ export default function Book() {
     }
   };
   const applyUserInfo = async () => {
-    const response = await fetch("/api/v1/user", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
+    const response = await fetch(
+      "https://freyja-uj95.onrender.com/api/v1/user",
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
     const {
       result,
       ...jsonData
@@ -178,12 +184,16 @@ export default function Book() {
   useEffect(() => {
     const fetchData = async () => {
       // 取得 room 資料
-      const roomRes = await fetch(`/api/v1/rooms/${id}`);
+      const roomRes = await fetch(
+        `https://freyja-uj95.onrender.com/api/v1/rooms/${id}`
+      );
       const roomData = await roomRes.json();
       setRoomData(roomData.result);
 
       // 取得 room type
-      const roomsRes = await fetch(`/api/v1/rooms/`);
+      const roomsRes = await fetch(
+        `https://freyja-uj95.onrender.com/api/v1/rooms/`
+      );
       const roomsData = await roomsRes.json();
       setRoomType(
         roomsData.result.map((item: RoomModel) => ({

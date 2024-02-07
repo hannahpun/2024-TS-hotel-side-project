@@ -27,13 +27,16 @@ function ResetPW() {
 
   const onSubmit = async (data: ResetPWFormValues) => {
     setHasSubmit(true);
-    const response = await fetch("/api/v1/user/forgot", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ ...data, code: "0Zvjde" }),
-    });
+    const response = await fetch(
+      "https://freyja-uj95.onrender.com/api/v1/user/forgot",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...data, code: "0Zvjde" }),
+      }
+    );
     const jsonData = await response.json();
     // if error happen
     if (!jsonData.status) {

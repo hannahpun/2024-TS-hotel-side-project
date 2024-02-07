@@ -25,17 +25,21 @@ function Dashboard() {
   useEffect(() => {
     const fetchData = async () => {
       // 取得 news 資料
-      const newsRes = await fetch(`/api/v1/home/news`);
+      const newsRes = await fetch(
+        `https://freyja-uj95.onrender.com/api/v1/home/news`
+      );
       const newsData: typeof fakeNews = await newsRes.json();
       setNewsData(newsData.result);
 
       // 取得 rooms 資料
-      // const roomsRes = await fetch(`/api/v1/rooms`);
+      // const roomsRes = await fetch(`https://freyja-uj95.onrender.com/api/v1/rooms`);
       // const roomsData: typeof fakeRooms = await roomsRes.json();
       // setRoomsData(roomsData.result);
 
       // 取得 food 資料
-      const foodRes = await fetch(`/api/v1/home/culinary`);
+      const foodRes = await fetch(
+        `https://freyja-uj95.onrender.com/api/v1/home/culinary`
+      );
       const foodData: typeof fakeFood = await foodRes.json();
       setFoodData(foodData.result);
 

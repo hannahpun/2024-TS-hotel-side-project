@@ -16,11 +16,14 @@ export default function () {
     const fetchData = async () => {
       try {
         // 取得 order 資料
-        const orderRes = await fetch(`/api/v1/orders/${orderId}`, {
-          headers: new Headers({
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          }),
-        });
+        const orderRes = await fetch(
+          `https://freyja-uj95.onrender.com/api/v1/orders/${orderId}`,
+          {
+            headers: new Headers({
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            }),
+          }
+        );
         const orderIdData = await orderRes.json();
         setOrderIdData(orderIdData.result);
         setSpinner(false);

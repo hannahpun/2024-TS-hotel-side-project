@@ -27,11 +27,14 @@ function UserOrder() {
 
   useEffect(() => {
     const getUserOrders = async () => {
-      const response = await fetch("/api/v1/orders", {
-        headers: new Headers({
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        }),
-      });
+      const response = await fetch(
+        "https://freyja-uj95.onrender.com/api/v1/orders",
+        {
+          headers: new Headers({
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          }),
+        }
+      );
       const jsonData = await response.json();
       if (jsonData.status) {
         setOrders(jsonData.result);
@@ -41,12 +44,15 @@ function UserOrder() {
   }, []);
 
   const cancelOrder = async (orderId: string) => {
-    const response = await fetch(`/api/v1/orders/${orderId}`, {
-      headers: new Headers({
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      }),
-      method: "DELETE",
-    });
+    const response = await fetch(
+      `https://freyja-uj95.onrender.com/api/v1/orders/${orderId}`,
+      {
+        headers: new Headers({
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        }),
+        method: "DELETE",
+      }
+    );
     const jsonData = await response.json();
     if (jsonData.status) {
       setOrders((o) => o.filter((order) => order._id !== orderId));
@@ -270,7 +276,9 @@ function UserOrder() {
           }}
         >
           <div className="rounded-2 bg-white position-relative">
-            <div className="d-block d-sm-none px-4 py-4 border-bottom">取消預定</div>
+            <div className="d-block d-sm-none px-4 py-4 border-bottom">
+              取消預定
+            </div>
             <div className="px-4 px-sm-20 py-10 py-sm-25 h7 border-bottom">
               確定要取消此房型的預訂嗎？
             </div>

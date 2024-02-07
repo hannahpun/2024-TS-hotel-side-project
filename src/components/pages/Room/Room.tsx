@@ -12,9 +12,12 @@ export default function Room() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`/api/v1/rooms/`, {
-        method: "GET",
-      });
+      const response = await fetch(
+        `https://freyja-uj95.onrender.com/api/v1/rooms/`,
+        {
+          method: "GET",
+        }
+      );
       const jsonData = await response.json();
 
       setRoomsData(jsonData.result);
