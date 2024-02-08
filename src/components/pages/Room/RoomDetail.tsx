@@ -350,15 +350,6 @@ export default function RoomDetail() {
                     <p className="fs-5 fw-bold font-noto-tc-serif text-custom-neutral-100 mb-4">
                       預訂房型
                     </p>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="398"
-                      height="2"
-                      viewBox="0 0 398 2"
-                      fill="none"
-                    >
-                      <path d="M0 1H398" stroke="#ECECEC" />
-                    </svg>
                     <h3 className="fs-2 fw-bold font-noto-tc-serif text-custom-neutral-100 mt-10 mb-2">
                       {roomData?.name}
                     </h3>

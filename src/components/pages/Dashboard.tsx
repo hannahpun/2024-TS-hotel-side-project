@@ -54,7 +54,7 @@ function Dashboard() {
     <>
       {/* Start of Banner*/}
       <div className="banner-card">
-      {/* <div className="shadowlayer"></div> */}
+        {/* <div className="shadowlayer"></div> */}
         <div id="myCarousel" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-indicators">
             <button
@@ -80,32 +80,85 @@ function Dashboard() {
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active" style={{ height: "100vh" }}>
-            
-              {/* start of 行動載具用 */ }
+              {/* start of 行動載具用 */}
               <div className="d-md-none">
                 {/* <h1 className="text-primary">行動載具用</h1> */}
-                <div className="" style={{position: "absolute", zIndex: 99,  marginTop:"112px", marginBottom:"166px" }}>
-                 
+                <div
+                  className=""
+                  style={{
+                    position: "absolute",
+                    zIndex: 2,
+                    marginTop: "112px",
+                    marginBottom: "166px",
+                  }}
+                >
                   <div className="">
-                    <div className="text-center" style={{ width:"400px", marginBottom:"40px" }}>
-                      <h2 className="text-primary" style={{ fontSize:"28px" }}>享樂酒店</h2>
-                      <h4 className="text-primary" style={{ fontSize:"16px" }}>Enjoyment Luxury Hotel</h4>
-                      <svg width="3" height="83" viewBox="0 0 3 83" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <line x1="1.5" y1="1" x2="1.5" y2="82" stroke="url(#paint0_linear_35_4784)" stroke-width="2" stroke-linecap="round"/>
+                    <div
+                      className="text-center"
+                      style={{ width: "400px", marginBottom: "40px" }}
+                    >
+                      <h2 className="text-primary" style={{ fontSize: "28px" }}>
+                        享樂酒店
+                      </h2>
+                      <h4 className="text-primary" style={{ fontSize: "16px" }}>
+                        Enjoyment Luxury Hotel
+                      </h4>
+                      <svg
+                        width="3"
+                        height="83"
+                        viewBox="0 0 3 83"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="1.5"
+                          y1="1"
+                          x2="1.5"
+                          y2="82"
+                          stroke="url(#paint0_linear_35_4784)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
                         <defs>
-                        <linearGradient id="paint0_linear_35_4784" x1="0.5" y1="0" x2="0.499996" y2="83" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#BE9C7C"/>
-                        <stop offset="1" stop-color="white"/>
-                        </linearGradient>
+                          <linearGradient
+                            id="paint0_linear_35_4784"
+                            x1="0.5"
+                            y1="0"
+                            x2="0.499996"
+                            y2="83"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#BE9C7C" />
+                            <stop offset="1" stop-color="white" />
+                          </linearGradient>
                         </defs>
                       </svg>
                     </div>
 
                     <div className="" style={{}}>
-                      <div className="overlay_sm" style={{ position: "absolute", marginLeft:"64px", marginBottom:"20px"}}></div>
-                      <div className="text-white " style={{ position: "absolute", width:"309px", marginLeft: "26px" }}>
-                        <h2 className="" style={{ fontSize: "48px" }}>高雄 <br />豪華住宿之選</h2>
-                        <h3 className="" style={{ fontSize: "24px" }}>我們致力於為您提供無與倫比的奢華體驗與優質服務</h3>
+                      <div
+                        className="overlay_sm"
+                        style={{
+                          position: "absolute",
+                          marginLeft: "64px",
+                          marginBottom: "20px",
+                        }}
+                      ></div>
+                      <div
+                        className="text-white "
+                        style={{
+                          position: "absolute",
+                          width: "309px",
+                          marginLeft: "26px",
+                        }}
+                      >
+                        <h2 className="" style={{ fontSize: "48px" }}>
+                          高雄 <br />
+                          豪華住宿之選
+                        </h2>
+                        <h3 className="" style={{ fontSize: "24px" }}>
+                          我們致力於為您提供無與倫比的奢華體驗與優質服務
+                        </h3>
                         <Link
                           to="/room"
                           style={{
@@ -114,66 +167,109 @@ function Dashboard() {
                           }}
                           className="w-60 mt-10 bg-white text-primary rounded d-flex justify-content-end align-items-center"
                         >
-                        <h5 className="me-2 text-dark">立即訂房</h5>
-                        <div className="border" style={{ width: "150px" }}></div>
-                      </Link>
-                      </div> 
+                          <h5 className="me-2 text-dark">立即訂房</h5>
+                          <div
+                            className="border"
+                            style={{ width: "150px" }}
+                          ></div>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-
               </div>
-              {/* end of 行動載具用 */ }
+              {/* end of 行動載具用 */}
 
               {/* start of 一般裝置用*/}
               <div className="d-none d-md-block">
-                <div className="" style={{position: "absolute", zIndex: 99, marginLeft:"80px", marginTop:"236px", marginBottom:"166px" }}>
-                {/* <h1 className="text-primary">一般裝置用</h1> */}
-                <div className="d-flex">
-                <div className="" style={{ width:"636px" }}>
-                  <h2 className="text-primary">享樂酒店</h2>
-                  <h4 className="text-primary pb-8">Enjoyment Luxury Hotel</h4>
-                  <svg width="636" height="3" viewBox="0 0 636 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="1" y1="1.5" x2="635" y2="1.5" stroke="url(#paint0_linear_488_4554)" stroke-width="2" stroke-linecap="round"/>
-                    <defs>
-                    <linearGradient id="paint0_linear_488_4554" x1="0" y1="2.5" x2="636" y2="2.5" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#BE9C7C"/>
-                    <stop offset="1" stop-color="white"/>
-                    </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-                <div className="" style={{ marginLeft:"200px", width:"678px"}}>
-                  <div className="overlay_lg" style={{ position: "absolute"}}></div>
-                  <div className="text-white" style={{ position: "absolute", marginLeft: "-85px" }}>
-                    <h2 className="pb-5" style={{ fontSize: "100px" }}>高雄 <br />豪華住宿之選</h2>
-                    <h3 className="" style={{ fontSize: "32px" }}>我們致力於為您提供無與倫比的奢華體驗與優質服務</h3>
-                    <Link
-                      to="/room"
-                      style={{
-                        height: "65px",
-                        width: "90%",
-                      }}
-                      className="w-60 mt-10 bg-white text-primary rounded d-flex justify-content-end align-items-center"
+                <div
+                  className=""
+                  style={{
+                    position: "absolute",
+                    zIndex: 2,
+                    marginLeft: "80px",
+                    marginTop: "236px",
+                    marginBottom: "166px",
+                  }}
+                >
+                  {/* <h1 className="text-primary">一般裝置用</h1> */}
+                  <div className="d-flex">
+                    <div className="" style={{ width: "636px" }}>
+                      <h2 className="text-primary">享樂酒店</h2>
+                      <h4 className="text-primary pb-8">
+                        Enjoyment Luxury Hotel
+                      </h4>
+                      <svg
+                        width="636"
+                        height="3"
+                        viewBox="0 0 636 3"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <line
+                          x1="1"
+                          y1="1.5"
+                          x2="635"
+                          y2="1.5"
+                          stroke="url(#paint0_linear_488_4554)"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                        />
+                        <defs>
+                          <linearGradient
+                            id="paint0_linear_488_4554"
+                            x1="0"
+                            y1="2.5"
+                            x2="636"
+                            y2="2.5"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#BE9C7C" />
+                            <stop offset="1" stop-color="white" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </div>
+                    <div
+                      className=""
+                      style={{ marginLeft: "200px", width: "678px" }}
                     >
-                    <h5 className="me-2 text-dark">立即訂房</h5>
-                    <div className="border" style={{ width: "150px" }}></div>
-                    </Link>
-                  </div> 
+                      <div
+                        className="overlay_lg"
+                        style={{ position: "absolute" }}
+                      ></div>
+                      <div
+                        className="text-white"
+                        style={{ position: "absolute", marginLeft: "-85px" }}
+                      >
+                        <h2 className="pb-5" style={{ fontSize: "100px" }}>
+                          高雄 <br />
+                          豪華住宿之選
+                        </h2>
+                        <h3 className="" style={{ fontSize: "32px" }}>
+                          我們致力於為您提供無與倫比的奢華體驗與優質服務
+                        </h3>
+                        <Link
+                          to="/room"
+                          style={{
+                            height: "65px",
+                            width: "90%",
+                          }}
+                          className="w-60 mt-10 bg-white text-primary rounded d-flex justify-content-end align-items-center"
+                        >
+                          <h5 className="me-2 text-dark">立即訂房</h5>
+                          <div
+                            className="border"
+                            style={{ width: "150px" }}
+                          ></div>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-                
-
-
-
-
-                </div>
-
-
               </div>
               {/* end of 一般裝置用*/}
-              
+
               <img src={banner} height="100vh" alt="banner" />
             </div>
             {/* <div className="carousel-item">
@@ -435,7 +531,7 @@ function Dashboard() {
                     {/* Slides */}
                     <Swiper
                       spaceBetween={20}
-                      slidesPerView={3}
+                      slidesPerView={1}
                       onSlideChange={() => console.log("slide change")}
                       onSwiper={(swiper) => console.log(swiper)}
                       breakpoints={{
