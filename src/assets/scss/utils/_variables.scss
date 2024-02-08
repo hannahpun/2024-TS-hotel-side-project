@@ -959,7 +959,7 @@ $h10-font-size:               $font-size-base * 0.625 !default;    // *custom
 
 $font-sizes: (
   1: $h1-font-size,   // 48px  .fs-1
-  2: $h2-font-size,   // 401px  .fs-2
+  2: $h2-font-size,   // 40px  .fs-2
   3: $h3-font-size,   // 32px  .fs-3
   4: $h4-font-size,   // 28px  .fs-4
   5: $h5-font-size,   // 24px  .fs-5
@@ -990,12 +990,15 @@ $headings-color:              null !default;
 
 // scss-docs-start display-headings
 $display-font-sizes: (
-  1: 5rem,
-  2: 4.5rem,
-  3: 4rem,
-  4: 3.5rem,
-  5: 3rem,
-  6: 2.5rem
+  1: 6.25rem,  // 100px
+  2: 6rem,     //  96px
+  3: 5.5rem,   //  88px
+  4: 5rem,     //  80px
+  5: 4.5rem,   //  72px
+  6: 4rem,     //  64px
+  7: 3.5rem,   //  56px
+  8: 3rem,     //  48px
+  9: 2.5rem,   //  40px
 ) !default;
 
 $display-font-family: null !default;
